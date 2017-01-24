@@ -1,0 +1,196 @@
+// Place all the styles related to the event controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+$status-color-none: #ddd;
+$status-color-far: #ddd;
+$status-color-near: #f2c57c;
+$status-color-active: #abE188;
+$status-color-completed: #ddd;
+$status-color-cancelled: #ddd;
+//Active & Near have attention-getting colors, others use "default"
+
+/* * * * * * * * * * * * * * * * */
+/* General "card" styles can be found in `cards.css.scss` */
+/* * * * * * * * * * * * * * * * */
+.event-cards {
+
+  .card {
+    width: 612px;
+  }
+
+  .card-column {
+    min-height: 125px;
+
+    &.col-1 {
+      width: 200px;
+    }
+
+    &.col-2 {
+      width: 305px;
+    }
+
+    &.col-3 {
+      // Explicitly defining width of this column is not necessary for consistency of overall card width,
+      // as it contains only buttons of a standard size (common across all cards in this list)
+    }
+  }
+
+  .market-context {
+    margin: 0px;
+
+    .color-box {
+      display: inline-block;
+      vertical-align: center;
+      width: 24px;
+      height: 24px;
+      background-color: #f60;
+    }
+
+    span {
+      display: inline-block;
+      margin-top: 3px;
+      vertical-align: top;
+      font-size: 1em;
+      font-weight: bold;
+    }
+  }
+
+  .status {
+    margin: 8px 0px 12px 0px;
+    padding: 4px 12px;
+    font-weight: bold;
+    border: 1px solid;
+    background-color: #fff;
+    border-color: darken(#fff, 20);
+
+    &.none {
+      background-color: $status-color-none;
+      border-color: darken($status-color-none, 20);
+    }
+
+    &.far {
+      background-color: $status-color-far;
+      border-color: darken($status-color-far, 20);
+    }
+
+    &.near {
+      background-color: $status-color-near;
+      border-color: darken($status-color-near, 20);
+    }
+
+    &.active {
+      background-color: $status-color-active;
+      border-color: darken($status-color-active, 20);
+    }
+
+    &.completed {
+      background-color: $status-color-completed;
+      border-color: darken($status-color-completed, 20);
+    }
+
+    &.cancelled {
+      background-color: $status-color-cancelled;
+      border-color: darken($status-color-cancelled, 20);
+    }
+
+    span {
+      display: inline-block;
+      vertical-align: top;
+      margin: 2px 0px 0px 0px;
+      font-size: 1em;
+    }
+  }
+
+  .event-id {
+
+  }
+
+  /* * * * * * * * * * * * * * * * */
+
+  .event-times {
+    div {
+      font-size: 1em;
+    }
+
+    h4 {
+      display: inline;
+    }
+  }
+
+  .event-ven-data {
+    width: 100%;
+    margin-top: 6px;
+    padding-top: 12px;
+    border-top: 1px solid #ddd;
+
+    .icon {
+      display: inline-block;
+      vertical-align: top;
+      width: 36px;
+      height: 36px;
+      margin: 0px 6px 0px 0px;
+      background-color: #000;
+    }
+
+    .ven-data {
+      display: inline-block;
+      vertical-align: top;
+
+      .data-group {
+        display: inline-block;
+        vertical-align: top;
+      }
+
+      span {
+        display: block;
+        margin-right: 9px;
+      }
+    }
+  }
+
+  .comments {
+    display: block;
+    width: 100%;
+    border-top: 1px solid #ddd;
+    margin: 9px 0px 0px 0px;
+    padding: 6px 0px 0px 0px;
+  }
+}
+
+/* * * * * * * * * * * * * * * * */
+/* General "event search" styles can be found in `search_box.css.scss` */
+/* * * * * * * * * * * * * * * * */
+$events-search-form-width: 412px;
+
+
+#events-search-wrapper {
+  width: $events-search-form-width;
+}
+
+form#events-search {
+  width: $events-search-form-width;
+
+  .chosen-select {
+    // width: 400px;
+  }
+
+  .dates {
+    display: inline;
+    margin-right: 6px;
+
+    .date-field {
+      width: 140px;
+      // background-color: #f60;
+    }
+  }
+}
+
+/* * * * * * * * * * * * * * * * */
+/* Add/Remove Targets            */
+/* * * * * * * * * * * * * * * * */
+#add_targets_select_chosen {
+  // Used `!important` *only* because JS was setting `style="width: 0px;"`, so `!important` was only
+  // recourse short of setting this style in Chosen's JS--which is worse than using `!important` here.
+  width: 240px !important;
+}

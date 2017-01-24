@@ -1,0 +1,21 @@
+<% content_for :subnav_items do %>
+  <%= render 'subnav_item', link_text: 'VEN', destination_path: ven_path(@create_report.ven.id) %>
+  <%= render 'subnav_item', link_text: 'CreateReport', destination_path: create_report_path(@create_report) %>
+<% end %>
+
+<%= generate_notice notice %>
+
+<%= generate_errors @create_report, "prohibited this Report Request from being saved:" %>
+
+<%= render 'create_reports/send_create_report', create_report: @create_report %>
+
+<%= render 'create_reports/cancel_create_report', create_report: @create_report %>
+
+<%= generate_view_details_column(@create_report, CreateReport, "Report Request Identification",
+    [:name, :description, :request_id, :ven_id, :active]) %>
+
+<%= generate_list(@create_report.report_requests, ReportRequest, "Reports",
+    [:request_id, :report_id, :dtstart, :duration, :report_back_duration, :granularity],
+    new_create_report_report_request_path(@create_report),
+    "Add Report")
+%>

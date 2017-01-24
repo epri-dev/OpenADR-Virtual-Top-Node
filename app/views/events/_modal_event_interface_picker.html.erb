@@ -1,0 +1,16 @@
+<div class="modal" id="modal-interface-picker">
+  <div class="modal-dialog">
+    <div class="close" data-dismiss="modal" aria-hidden="true">&times;</div>
+    <h3 class="modal-title">Create new event of type:</h3>
+    <div class="modal-body">
+      <% @grouped_event_interface_class_names.keys.each do |group| %>
+        <div class="modal-options-group">
+          <h4><%= group %></h4>
+          <% @grouped_event_interface_class_names[group].each do |event_interface_class_name| %>
+            <%= link_to event_interface_class_name, new_event_by_type_path(event_interface_class_name.underscore), class: 'object-type-option btn btn-primary' %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

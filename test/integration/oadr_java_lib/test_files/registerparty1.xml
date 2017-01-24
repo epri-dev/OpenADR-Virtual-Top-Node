@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns3:oadrQueryRegistration xmlns="http://www.w3.org/2005/Atom" xmlns:ns2="http://www.w3.org/2000/09/xmldsig#" xmlns:ns3="http://openadr.org/oadr-2.0b/2012/07" xmlns:ns4="http://docs.oasis-open.org/ns/energyinterop/201110" xmlns:ns5="http://openadr.org/oadr-2.0b/2012/07/xmldsig-properties" xmlns:ns6="http://docs.oasis-open.org/ns/emix/2011/06/power" xmlns:ns7="urn:ietf:params:xml:ns:icalendar-2.0" xmlns:ns8="http://docs.oasis-open.org/ns/emix/2011/06" xmlns:ns9="http://docs.oasis-open.org/ns/emix/2011/06/siscale" xmlns:ns10="urn:ietf:params:xml:ns:icalendar-2.0:stream" xmlns:ns11="http://www.opengis.net/gml/3.2" xmlns:ns12="http://www.w3.org/2009/xmldsig11#" xmlns:ns13="http://docs.oasis-open.org/ns/energyinterop/201110/payloads" xmlns:ns14="urn:un:unece:uncefact:codelist:standard:5:ISO42173A:2010-04-07" ns4:schemaVersion="2.0b">
+    <ns13:requestID>123</ns13:requestID>
+</ns3:oadrQueryRegistration>

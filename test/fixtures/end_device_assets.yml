@@ -1,0 +1,13 @@
+# == Schema Information
+#
+# Table name: end_device_assets
+#
+#  id         :integer          not null, primary key
+#  name       :string(255)
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+
+first:
+  name: first

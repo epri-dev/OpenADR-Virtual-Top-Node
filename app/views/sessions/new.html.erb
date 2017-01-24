@@ -1,0 +1,60 @@
+<%= generate_error flash[:error] %>
+
+<div class="row">
+  <div class="col-lg-6 col-lg-offset-0">
+    <div class="well">
+      <%= form_for(:session, url: login_path, html: { class: 'form session-form' }) do |f| %>
+        <h2>Please Login</h2>
+
+        <div class="form-group">
+          <%= f.label :user_name, "User Name" %><br />
+          <%= f.text_field :user_name, value: params[:session] ? params[:session][:user_name] : "", size: 20, class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :password, "Password" %><br />
+          <%= f.password_field :password, size: 20, class: 'form-control' %>
+        </div>
+
+        <div class="checkbox">
+          <label for="session_agree">
+            <%= f.check_box :agree %> I agree to the terms of <a data-toggle="modal" href="#terms-modal">the EPRI software agreement</a>.
+          </label>
+        </div>
+
+        <%= f.submit "Login", class: 'btn btn-primary', data: { 'disable-with' => 'Processing...' } %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="terms-modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h2 class="modal-title">EPRI Software Agreement</h2>
+      </div>
+      <div class="modal-body">
+        <h4>EPRI's OpenADR VTN <%= Oadr::VERSION %> </h4>
+
+        <address>
+          Electric Power Research Institute (EPRI)<br/>
+          3420 Hillview Ave.<br/>
+          Palo Alto, CA 94304
+        </address>
+        <p>Copyright © <%= Time.now().year %>, Electric Power Research Institute (EPRI)</p>
+
+        <p>All rights reserved.</p>
+        <p>OpenADR is licensed under BSD 3-Clause license.</p>
+        <p>Redistribution and use in source and binary forms, with or without modification are permitted provided that the following conditions are met:</p>
+
+        <ul>
+          <li>Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.</li>
+          <li>Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.</li>
+          <li>Neither the name of EPRI nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

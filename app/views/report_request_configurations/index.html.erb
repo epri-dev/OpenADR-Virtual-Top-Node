@@ -1,0 +1,13 @@
+<% content_for :subnav_items do %>
+  <%= render 'application/menu_item_subnav_groups/vtn_config_subnav_items' %>
+<% end %>
+
+<%= generate_error flash[:error] %>
+<%= generate_notice flash[:notice] %>
+
+<%= generate_errors @report_request_configuration, "prohibited this Report Request Configuration from being saved:" %>
+
+<%= generate_list(@report_request_configurations, ReportRequestConfiguration, "Report Request Configurations",
+    [:name, :report_name_id, :sampling_rate_min_period, :sampling_rate_max_period, :sampling_rate_on_change, :granularity, :report_back_duration],
+    new_report_request_configuration_path,
+    "Create Report Request Configuration") %>

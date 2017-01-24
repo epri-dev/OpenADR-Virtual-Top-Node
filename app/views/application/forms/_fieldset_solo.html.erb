@@ -1,0 +1,23 @@
+<fieldset id="<%= heading_string.parameterize %>">
+
+  <h3 class="fieldset-heading"><%= heading_string %></h3>
+
+  <% attribute_symbols.each do |attribute_symbol| %>
+    <div class="form-group">
+      <label class="control control-label">
+        <%= reference_object.class.fields[attribute_symbol].display_name %>
+      </label>
+
+      <div class="control">
+        <%= reference_object.class.fields[attribute_symbol].generate_field(form_obj, errors_object) %>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <div class="form-submit">
+      <%= form_obj.submit 'Save', class: 'btn btn-primary' %>
+    </div>
+  </div>
+
+</fieldset>

@@ -1,0 +1,36 @@
+<div class="form">
+    <fieldset>
+        <h3 class="fieldset-heading"><%= header_text %></h3>
+
+        <table class="list_table table table-striped">
+          <thead>
+            <tr>
+              <% names.each do |name| %>
+                <th class="<%= "#{params[:controller]}_header_#{name}" %>"><%= model_class.fields[name].display_name %></th>
+              <% end %>
+
+              <th>Opt State</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% records.each do |record| %>
+              <tr>
+                <% names.each do |name| %>
+
+                  <td title="<%= model_class.fields[name].get_value record %>">
+                    <%= model_class.fields[name].get_value record %>
+                  </td>
+
+                <% end %>
+
+                <td>
+                  <%= record.opt_state_name(ven_id) %>
+                </td>
+
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+    </fieldset>
+</div>

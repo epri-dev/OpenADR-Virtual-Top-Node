@@ -1,0 +1,11 @@
+<%= generate_notice notice %>
+<%= generate_error flash[:error] %>
+
+<%= generate_errors @resource, "prohibited this Resource from being created:" %>
+
+<%= generate_edit_columns [@ven, @resource], Resource,
+    "Create Resource for VEN " + @ven.name,
+    [:name, :ven_id, nil, :address, :state, :zip, :resource_type_id, nil, nil],
+    "Create Resource"
+%>
+<%= link_to "Back to VEN #{@ven.name}", ven_path(@ven), class: "btn btn-default" %>

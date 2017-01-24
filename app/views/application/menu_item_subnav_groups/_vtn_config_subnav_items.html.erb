@@ -1,0 +1,11 @@
+<% subnav_items = [
+  { link_text: 'Market Contexts', destination_path: market_contexts_path },
+  { link_text: 'Targets', destination_path: targets_path },
+  { link_text: 'Units', destination_path: emix_units_path },
+  { link_text: 'VTN Parameters', destination_path: vtn_parameters_path },
+  { link_text: 'Test Case Prompts', destination_path: testcaseprompts_path },
+  { link_text: 'Report Request Configurations', destination_path: report_request_configurations_path }
+] %>
+<% subnav_items.each do |item| %>
+  <%= render 'subnav_item', link_text: item[:link_text], destination_path: item[:destination_path] %>
+<% end %>

@@ -1,0 +1,13 @@
+/home/torquebox/oadr/log/*.log {
+    hourly
+    su torquebox torquebox
+    create 644 torquebox torquebox
+    size=100M
+    missingok
+    rotate 2
+    compress
+    delaycompress
+    notifempty
+    copytruncate
+}
+

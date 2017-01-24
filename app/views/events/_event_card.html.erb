@@ -1,0 +1,57 @@
+<div id="event-<%= event.id %>" class="card">
+
+  <div class="card-column col-1">
+
+    <div class="market-context">
+      <div class="color-box" style="background-color: <%= event.market_context_color %>"></div>
+      <span><%= event.market_context.name %></span>
+    </div>
+
+    <div class="status <%= event.event_status.name.parameterize unless event.event_status.nil? %>">
+      <span><%= event.event_status.name.capitalize unless event.event_status.nil? %></span>
+    </div>
+
+    <div class="event-id">
+      ID: <%= event.event_id %>
+    </div>
+    
+  </div>
+
+  <div class="card-column col-2">
+
+    <div class="event-times">
+      <h4><%= " #{event.dtstart.in_time_zone(event.time_zone).strftime("%A, %b %e %Y")}" %></h4>
+      <div><%= "#{ event.dtstart.in_time_zone(event.time_zone).strftime("%-l:%M%P") } - #{ event.dtend.in_time_zone(event.time_zone).strftime("%-l:%M%P (%Z)") } - #{minutes_to_words(event.duration)}" %></div>
+    </div>
+
+    <div class="event-ven-data">
+
+      <%= image_tag 'icon_vens.png', class: 'icon' %>
+
+      <div class="ven-data">
+        <div class="data-group">
+          <span>Targeted Devices: <strong><%= event.vens.count %></strong></span>
+        </div>
+        <!--div class="data-group">
+          <span>Opt In: <strong><%= '098' %></strong></span>
+          <span>Opt Out: <strong><%= '024' %></strong></span>
+        </div-->
+      </div>
+    </div>
+
+  </div>
+
+  <div class="card-column col-3">
+
+    <div class="card-actions">
+      <%= link_to 'Status', event_status_path(event), class: 'btn btn-default btn-xs' %>
+      <%= link_to 'Edit', event, class: 'btn btn-default btn-xs' %>
+      <%= link_to 'Calendar', events_calendar_path(destination_date_params(event.dtstart.strftime("%Y-%m-%d"))), class: 'btn btn-default btn-xs' %>
+      <%= link_to 'Destroy', event_path(event, @search_parameters), class: 'btn btn-danger btn-xs', method: :delete, data: { confirm: 'Are you sure?' } %>
+    </div>
+  </div>
+
+  <div class="comments">
+    <span><strong>Comments: </strong><%= event.vtn_comment.present? ? event.vtn_comment : "[no comments]" %></span>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<%= form_for(create_report, url: send_to_ven_create_report_path(create_report)) do |f| %>
+
+<fieldset>
+  <h3 class="fieldset-heading">Send Create Report to VEN</h3>
+
+  <div class="actions">
+    <%= f.submit "Send Report", confirm: "Are you sure?", class: 'btn btn-primary' %>
+  </div>
+
+</fieldset>
+
+<% end %>

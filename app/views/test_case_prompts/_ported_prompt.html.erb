@@ -1,0 +1,19 @@
+<%= form_for(@test_case, url: testcaseprompt_execute_path) do |f| %>
+
+<div class="span-19 last">
+    <div class="roundtop settingscontainer">
+        <div class="info roundtop"><%= header_text %></div>
+
+        <p><%= prompt_text %></p>
+        <div class="actions">
+            <%= f.submit "Execute" %>
+        </div>
+
+        <div class="field">
+            <%= hidden_field 'testcase', 'prompt', value: prompt_name %>
+        </div>
+
+    </div>
+</div>
+
+<% end %>

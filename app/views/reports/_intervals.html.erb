@@ -1,0 +1,15 @@
+<% if @report.report_name.name.include?("STATUS") %>
+
+    <% @report.report_interval_descriptions.each do |report_interval_descripton| %>
+        <%= generate_list_readonly(report_interval_descripton.report_intervals.limit(30), ReportInterval, "Intervals (#{report_interval_descripton.rid})",
+                                   [:dtstart, :online, :manual_override, :data_quality_id, :uid]) %>
+
+    <% end %>
+
+<% else %>
+
+    <% @report.report_interval_descriptions.each do |report_interval_descripton| %>
+        <%= generate_list_readonly(report_interval_descripton.report_intervals.limit(30), ReportInterval, "Intervals (#{report_interval_descripton.rid})",
+                                   [:dtstart, :duration, :value, :data_quality_id, :accuracy, :confidence, :uid]) %>
+    <% end %>
+<% end %>

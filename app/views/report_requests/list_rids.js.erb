@@ -1,0 +1,4 @@
+$('#rid_content').html("<%= escape_javascript(render 'rids') %>")
+
+// have to call this again to assign the onchange event to the report_specififer_id select input
+reportChangeHandler();

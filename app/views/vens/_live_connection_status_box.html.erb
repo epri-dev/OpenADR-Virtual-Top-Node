@@ -1,0 +1,11 @@
+<% javascript 'ven_live_connection_status_box.js' %>
+
+<div class="connection-status">
+  <div id="<%= ven.ven_id %>" class="status-indicator-block <%= ven.status.parameterize %>">
+    <span class="status-string"><%= ven.status %></span>
+  </div>
+  <span class="last-comm-at">
+    Last communicated:
+    <%= ven.last_comm_at.nil? ? "Never" : "#{ time_ago_in_words(ven.last_comm_at) } ago"  %>
+  </span>
+</div>

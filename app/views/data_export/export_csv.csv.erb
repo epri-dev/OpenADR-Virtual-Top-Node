@@ -1,0 +1,10 @@
+<% headers = report_interval_csv_columns.values %>
+<%= CSV.generate_line headers, row_sep: ?\t, quote_char: ?\ %>
+<% Time.use_zone(@time_zone) do %>
+  <% @report_interval_descriptions.each do |report_interval_description| %>
+    <% report_interval_description.report_intervals.in_datetime_range(@first_datetime, @last_datetime).order_by_rid.order_by_dtstart.each do |report_interval| %>
+      <%= CSV.generate_line formatted_report_interval_row(report_interval_description, report_interval_description.report.report_name.name, report_interval, @time_zone),
+          row_sep: ?\t, quote_char: ?\ %>
+    <% end %>
+  <% end %>
+<% end %>

@@ -1,0 +1,82 @@
+<% if @manage_members_of_record %>
+
+  <div class="form">
+      <fieldset>
+          <h3 class="fieldset-heading">Membership</h3>
+
+          <%= form_for(@manage_members_of_record, url: remove_vens_target_path, method: :put) do |f| %>
+
+            <table class="table table-striped members">
+              <thead>
+                <tr>
+                  <th><%= @members.model_name.human.titleize %> Name</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <% if !@members.empty? %>
+                  <% @members.each do |record| %>
+
+                    <tr>
+                      <td id="<%= "#{ record.class.name.parameterize }-#{ record.id }" %>">
+                        <div class="checkbox">
+                          <label>
+                            <%= check_box_tag "#{ record.class.name.parameterize }[id][]", record.id %>
+                            <%= record.name %>
+                          </label>
+                        </div>
+                      </td>
+                    </tr>
+
+                  <% end %>
+                <% else %>
+                  <tr>
+                    <td colspan="2">No <%= @members.model_name.human.pluralize %> associated.</td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+
+            <%= f.submit "Remove #{ @members.model_name.human.pluralize.titleize }", class: 'btn btn-danger', disabled: @members.empty? %>
+          <% end %>
+
+          <hr>
+
+          <%= form_for(@manage_members_of_record, url: add_vens_target_path, method: :put) do |f| %>
+            <table class="table table-striped nonmembers">
+              <thead>
+                <tr>
+                  <th><%= @members.model_name.human.titleize %> Name</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <% if @non_members.any? %>
+                  <% @non_members.each do |record| %>
+
+                    <tr>
+                      <td id="<%= "#{ record.class.name.parameterize }-#{ record.id }" %>">
+                        <div class="checkbox">
+                          <label>
+                            <%= check_box_tag "#{ record.class.name.parameterize }[id][]", record.id %>
+                            <%= record.name %>
+                          </label>
+                        </div>
+                      </td>
+                    </tr>
+
+                  <% end %>
+                <% else %>
+                  <tr>
+                    <td colspan="2">All available <%= @non_members.model_name.human.pluralize.downcase %> already associated.</td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+
+            <%= f.submit "Add #{ @members.model_name.human.pluralize.titleize }", class: 'btn btn-success', disabled: @non_members.empty? %>
+          <% end %>
+      </fieldset>
+  </div>
+
+<% end %>

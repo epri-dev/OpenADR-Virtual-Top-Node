@@ -1,0 +1,16 @@
+<%= form_for(create_report, url: cancel_create_report_create_report_path(create_report)) do |f| %>
+
+<fieldset>
+  <h3 class="fieldset-heading">Cancel Report</h3>
+
+  <div class="form-group">
+    <%= f.label CreateReport.fields[:report_to_follow].display_name, CreateReport.fields[:report_to_follow].display_name, class: 'control-label' %><br />
+    <%= CreateReport.fields[:report_to_follow].generate_field f, @create_report %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Cancel Report", confirm: "Are you sure?", class: "btn btn-primary" %>
+  </div>
+</fieldset>
+
+<% end %>

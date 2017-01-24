@@ -1,0 +1,20 @@
+<% content_for :subnav_items do %>
+  <%= render 'subnav_item', link_text: 'Targets', destination_path: targets_path %>
+<% end %>
+
+<%= generate_notice notice %>
+<%= generate_error flash[:error] %>
+
+<%= generate_errors @target, "prohibited this target from being created:" %>
+
+<%= form_for(@target) do |f| %>
+
+  <%= generate_edit_columns @target, Target,
+      "New Target",
+      [:name, :description, :type, :tag],
+      "Create Target"
+  %>
+
+<% end %>
+
+<%= link_to 'Back', targets_path, class: 'btn btn-default' %>

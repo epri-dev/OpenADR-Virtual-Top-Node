@@ -1,0 +1,11 @@
+<% content_for :subnav_items do %>
+  <%= render 'application/menu_item_subnav_groups/vtn_config_subnav_items' %>
+<% end %>
+
+<%= generate_notice notice %>
+<%= generate_error flash[:error] %>
+
+<%= generate_list(@emix_units, EmixUnit, "Units",
+                  [:unit_type_id, :units, :description],
+                  new_emix_unit_path,
+                  "Create Unit") %>

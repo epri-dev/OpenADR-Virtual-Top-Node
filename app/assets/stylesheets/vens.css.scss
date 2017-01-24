@@ -1,0 +1,354 @@
+// Place all the styles related to the VENs controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* * * * * * * * * * * * * * * * * * * * * * */
+/* * Styles for "Interval Data" view can be found under `reports.css.scss`
+/* * * * * * * * * * * * * * * * * * * * * * */
+
+$ven_search_form_width: 280px;
+
+.status-indicator-block {
+  display: inline-block;
+  padding: 4px 12px;
+  font-weight: bold;
+  border: 1px solid;
+  background-color: #fff;
+  border-color: darken(#fff, 20);
+
+  &.online {
+    background-color: #abE188;
+    border-color: darken(#abE188, 20);
+  }
+
+  &.offline {
+    background-color: #ccc;
+    border-color: darken(#ccc, 20);
+  }
+}
+
+.form-wrapper {
+    // Set width to same width as absolutely positioned `form` element it contains,
+    // in order to keep next elements in block order (`.btn`, etc.) rendering as though
+    // `form` was a normally positioned inline-block.  Height is arbitrary.
+    width: $ven_search_form_width;
+    height: 10px;
+    background-color: #f60;
+
+  form.search {
+    width: $ven_search_form_width;
+  }
+}
+
+/* * * * * * * * * * * * * * * * */
+/* General "card" styles can be found in `cards.css.scss` */
+/* * * * * * * * * * * * * * * * */
+.ven-cards {
+
+  .card {
+    width: 610px;
+  }
+
+  .card-column {
+    min-height: 100px;
+
+    &.col-1 {
+      width: 210px;
+      overflow-x: hidden;
+    }
+    &.col-2 {
+      width: 290px;
+      overflow-x: hidden;
+    }
+    &.col-3 {
+      // Inherited width accommodates buttons (which are the same size in
+      // all cards), so there's no need to define the width of this column
+    }
+  }
+
+  .card-column {
+
+    & * {
+      // Styles necessary to achieve ellipsis for long strings overrunning their parent's width
+      // This style needs to apply to all children (direct AND their descendents) of `.card-column`
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+
+  .customer-name {
+    height: 20px; // Maintain box height, even without contents (`:customer_name` is not a required field)
+  }
+
+  .customer-address {
+    height: 60px; // Maintain box height, given different formats of address (including/excluding `:address_2` line)
+    margin-left: 12px;
+  }
+
+  .connection-status {
+    display: block;
+    margin: 8px 0px 0px 0px;
+  }
+
+  .string-label-value {
+    margin-bottom: 4px;
+
+    &:last-child {
+      margin-bottom: 0px;
+    }
+  }
+}
+
+/* * * * * * * * * * * * * * * * */
+/* General "card" styles can be found in `cards.css.scss` */
+/* * * * * * * * * * * * * * * * */
+.ven-event-cards {
+
+  .card {
+    width: 612px;
+  }
+
+  .card-column {
+    min-height: 100px;
+
+    &.col-1 {
+      width: 200px;
+    }
+
+    &.col-2 {
+      width: 305px;
+    }
+
+    &.col-3 {
+      // Explicitly defining width of this column is not necessary for consistency of overall card width,
+      // as it contains only buttons of a standard size (common across all cards in this list)
+    }
+  }
+
+  .market-context {
+    margin: 0px;
+
+    .color-box {
+      display: inline-block;
+      vertical-align: center;
+      width: 24px;
+      height: 24px;
+      background-color: #f60;
+    }
+
+    span {
+      display: inline-block;
+      margin-top: 3px;
+      vertical-align: top;
+      font-size: 1em;
+      font-weight: bold;
+    }
+  }
+
+  .status {
+    margin: 8px 0px 12px 0px;
+    padding: 4px 12px;
+    font-weight: bold;
+    border: 1px solid;
+    background-color: #fff;
+    border-color: darken(#fff, 20);
+
+    &.none {
+      background-color: $status-color-none;
+      border-color: darken($status-color-none, 20);
+    }
+
+    &.far {
+      background-color: $status-color-far;
+      border-color: darken($status-color-far, 20);
+    }
+
+    &.near {
+      background-color: $status-color-near;
+      border-color: darken($status-color-near, 20);
+    }
+
+    &.active {
+      background-color: $status-color-active;
+      border-color: darken($status-color-active, 20);
+    }
+
+    &.completed {
+      background-color: $status-color-completed;
+      border-color: darken($status-color-completed, 20);
+    }
+
+    &.cancelled {
+      background-color: $status-color-cancelled;
+      border-color: darken($status-color-cancelled, 20);
+    }
+
+    span {
+      display: inline-block;
+      vertical-align: top;
+      margin: 2px 0px 0px 0px;
+      font-size: 1em;
+    }
+  }
+
+  .event-id {
+
+  }
+
+  /* * * * * * * * * * * * * * * * */
+
+  .event-times {
+    div {
+      font-size: 1em;
+    }
+
+    h4 {
+      display: inline;
+    }
+  }
+
+  .event-ven-data {
+    width: 100%;
+    margin-top: 6px;
+    padding-top: 12px;
+    border-top: 1px solid #ddd;
+
+    .icon {
+      display: inline-block;
+      vertical-align: top;
+      width: 36px;
+      height: 36px;
+      margin: 0px 6px 0px 0px;
+      background-color: #000;
+    }
+
+    .ven-data {
+      display: inline-block;
+      vertical-align: top;
+
+      .data-group {
+        display: inline-block;
+        vertical-align: top;
+      }
+
+      span {
+        display: block;
+        margin-right: 9px;
+      }
+    }
+  }
+
+  .comments {
+    display: block;
+    width: 100%;
+    border-top: 1px solid #ddd;
+    margin: 9px 0px 0px 0px;
+    padding: 6px 0px 0px 0px;
+  }
+}
+
+fieldset.ven-provision, fieldset.ven-interval-data {
+
+  .fieldset-heading {
+
+    .connection-status {
+      margin-left: 48px;
+
+      .status-indicator-block {
+        margin-right: 6px;
+      }
+    }
+  }
+
+  .label-icon {
+    width: 40px;
+    height: 40px;
+    padding: 6px;
+    text-align: center;
+    font-size: 1.25em;
+    line-height: 1.25em;
+    border: 3px solid #fff;
+    border-radius: 50%;
+    color: #fff;
+    background-color: $brand-warning;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, .5);
+  }
+
+  .form-group {
+    position: relative;
+    margin: 0px 0px 18px 12px;
+    padding-left: 20px; // Padded to allow space for `.label-icon`
+
+    .label-icon {
+      position: absolute;
+      top: 8px;
+      left: 0px;
+    }
+  }
+
+  .ven-client-reference {
+    display: inline-block;
+    margin: 12px;
+    padding: 12px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+
+    h4 {
+      margin: 0px 0px 12px 0px;
+    }
+
+    .image-wrapper {
+      position: relative;
+
+      .label-icon {
+        position: absolute;
+        width: 24px;
+        height: 24px;
+        font-size: .75em;
+        line-height: .75em;
+
+      }
+    }
+  }
+}
+
+.vens_table th.vens_header_name
+{
+  width: 10em;
+}
+
+.vens_table th.vens_header_view_registration_id
+{
+  width: 12em;
+}
+
+.vens_table th.vens_header_account_id
+{
+  width: 6em;
+}
+
+.vens_table th.vens_header_status
+{
+  width: 4em;
+}
+
+.vens_table th.vens_header_edit
+{
+  width: 5em;
+}
+
+.vens_table th.vens_header_destroy
+{
+  width: 4em;
+}
+
+.vens_header_created_date_time
+{
+  width: 15em;
+}
+
+.vens_header_report_name_id
+{
+  width: 17em;
+}

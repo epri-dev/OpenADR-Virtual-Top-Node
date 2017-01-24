@@ -1,0 +1,54 @@
+.month-fields {
+  //display: none;
+}
+
+.summer-month-range-selection {
+  //display: none;
+}
+
+.month-season-grid {
+  display: inline-block;
+  margin: 12px 0px 24px 12px;
+  font-size: 0px; // Necessary to get rid of spaces between `inline-block` elements contained within
+  border: 1px solid #ddd;
+}
+
+.grid-month {
+  display: inline-block;
+  margin: 0px;
+  text-align: center;
+  font-size: 1.5rem; // Necessary to override `font-size` set by container element (see above)
+
+  .grid-month-name {
+    margin: 3px auto 0px auto;
+    font-weight: bold;
+  }
+  .grid-month-season {
+    width: 42px;
+    height: 42px;
+    margin: 0px 6px 3px 6px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  &.winter {
+    background-color: #e8eeee;
+
+    .grid-month-season {
+      background-image: url('/assets/icon-snowflake.svg');
+    }
+  }
+  &.summer {
+    background-color: #fff;
+
+    .grid-month-season {
+      background-image: url('/assets/icon-sun.svg');
+    }
+  }
+}
+
+.tou-hours {
+  table-layout: fixed;
+  width: 420px;
+}

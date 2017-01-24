@@ -1,0 +1,32 @@
+<% content_for :subnav_items do %>
+  <%= render 'subnav_item', link_text: 'Accounts', destination_path: accounts_path if current_account_is_admin %>
+  <%= render 'subnav_item', link_text: @account.name, destination_path: account_path(@account) %>
+<% end %>
+
+<%= generate_notice notice %>
+
+<%= generate_error flash[:error] %>
+
+<%= generate_errors @account, "prohibited this account from being saved:" %>
+
+<%= render "accounts/admin_account_control",
+           record: @account,
+           model_class: Account if current_account.is_admin %>
+
+<%= generate_edit_columns @account, Account,
+    "Account Settings",
+    [:name, :email, :account_number, :company, :first_name, :last_name, :time_zone],
+    "Update Account"
+%>
+
+<%= generate_edit_columns @account, Account,
+    "Contact Info",
+    [:phone, :contact2, :contact3, :contact4, nil, nil],
+    "Update Contact Info"
+%>
+
+<%= generate_edit_columns @account, Account,
+    "Update Password",
+    [:password, :password_confirmation, nil],
+    "Update Password"
+%>

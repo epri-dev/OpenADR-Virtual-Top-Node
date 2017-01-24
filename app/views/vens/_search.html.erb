@@ -1,0 +1,25 @@
+<div class="form-wrapper">
+  &nbsp;
+  <%= form_tag vens_path, method: 'get', class: 'search' do %>
+    <%= fields_for :search do |f| %>
+      <div class="advanced-toggle">...</div>
+      <div class="advanced-fields">
+        <div class="form-group">
+          <%= f.label :target_ids, 'Target(s)', class: 'control-label' %><br>
+          <%= f.select(:target_ids, grouped_options_for_select(TargetsHelper.target_options_grouped_by_tag, selected: @target_ids), {}, { multiple: true, class: 'form-control chosen-select' }) %>
+        </div>
+        <div class="form-group">
+          <%= f.label :status, 'Status', class: 'control-label' %><br>
+          <%= f.select :status, options_for_select([
+            [Ven::ACCEPTABLE_STATUS_STRINGS[0], Ven::ACCEPTABLE_STATUS_STRINGS[0]],
+            [Ven::ACCEPTABLE_STATUS_STRINGS[1], Ven::ACCEPTABLE_STATUS_STRINGS[1]]
+          ], @status), { prompt: "All" }, { multiple: false, class: 'form-control' }  %>
+        </div>
+      </div>
+      <div class="standard-fields">
+        <%= f.text_field :search_string, class: 'form-control', value: @search_string %>
+        <%= f.submit 'Search', class: 'btn btn-primary' %>
+      </div>
+    <% end %>
+  <% end %>
+</div>

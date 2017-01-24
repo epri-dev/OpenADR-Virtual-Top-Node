@@ -1,0 +1,35 @@
+<%= form_for(@ven_interface.ven, url: reregister_ven_path(@ven_interface.ven)) do |f| %>
+
+  <fieldset>
+    <h3 class="fieldset-heading">Queue VEN Reregister</h3>
+
+    <div class="actions">
+      <%= f.submit "Queue VEN Reregister", confirm: "Are you sure you want to force the VEN to reregister?", title: "Queue a registration message", class: 'btn btn-primary' %>
+    </div>
+  </fieldset>
+
+<% end %>
+
+<%= form_for(@ven_interface.ven, url: cancel_registration_ven_path(@ven_interface.ven)) do |f| %>
+
+  <fieldset>
+    <h3 class="fieldset-heading">Cancel VEN Registration</h3>
+
+    <div class="actions">
+      <%= f.submit "Cancel VEN Registration", confirm: "Are you sure you want to cancel registration?", title: "Queue a cancel registration message", class: 'btn btn-primary' %>
+    </div>
+  </fieldset>
+
+<% end %>
+
+<%= form_for(@ven_interface.ven, url: clear_registration_ven_path(@ven_interface.ven)) do |f| %>
+
+  <fieldset>
+    <h3 class="fieldset-heading">Clear VEN Registration</h3>
+
+    <div class="actions">
+      <%= f.submit "Clear VEN Registration", confirm: "Are you sure you want to clear registration?", title: "Clear VEN registration w/o notfying the VEN", class: 'btn btn-primary' %>
+    </div>
+  </fieldset>
+
+<% end %>

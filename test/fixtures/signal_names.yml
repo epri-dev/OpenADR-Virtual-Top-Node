@@ -1,0 +1,18 @@
+# == Schema Information
+#
+# Table name: signal_names
+#
+#  id          :integer          not null, primary key
+#  name        :string(255)
+#  description :string(255)
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
+signame1:
+  name: SIMPLE
+  description: SIMPLE
+
+signame2:
+  name: ENERGY_PRICE
+  description: ENERGY_PRICE

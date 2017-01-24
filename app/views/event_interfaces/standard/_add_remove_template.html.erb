@@ -1,0 +1,54 @@
+<div class="form">
+    <fieldset>
+        <h3 class="fieldset-heading">Targets</h3>
+        <%= form_for(record, url: add_targets_event_path, remote: true) do |f| %>
+
+          <%= select_tag add_field_name, grouped_options_for_select(unassociated_targets_by_target_type(Target::ACCEPTABLE_TYPE_STRINGS, current_account)), { multiple: true, id: 'add-targets-select', class: 'chosen-select' } %>
+
+          <%= f.submit 'Add', class: 'btn btn-success btn-sm', data: { 'disable-with' => 'Add' } %>
+        <% end %>
+
+        <% unless in_group.empty? %>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <% column_names.each do |column_name| %>
+              <th><%= column_name %></th>
+              <% end %>
+              <th></th>
+            </tr>
+          </thead>
+            <tbody class="in-group" >
+              <% in_group.each do |group_item| %>
+                <tr id="<%= "in-group-#{ group_item.class.name.parameterize }-#{ group_item.id }" %>">
+                  <td>
+                    <%= group_item.public_name %>
+                  </td>
+                  <td>
+                    <%= group_item.type %>
+                  </td>
+                  <td>
+                    <%= group_item.tag %>
+                  </td>
+                  <td>
+                    <%= group_item.vens_count %>
+                  </td>
+                  <td>
+                    <%= form_for(record, url: remove_targets_event_path, remote: true) do |f| %>
+                      <%= hidden_field :id, group_item.id, {name: remove_field_name, value: group_item.id} %>
+                      <%= f.submit 'Remove', class: 'btn btn-danger btn-sm', data: { 'disable-with' => 'Remove' } %>
+                    <% end %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+        </table>
+        <% else %>
+          <div class="blank_slate_container">
+            <h4>This event has no targets.</h4>
+          </div>
+        <% end %>
+
+    </fieldset>
+
+</div>

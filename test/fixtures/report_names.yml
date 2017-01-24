@@ -1,0 +1,33 @@
+# == Schema Information
+#
+# Table name: report_names
+#
+#  id         :integer          not null, primary key
+#  name       :string(255)
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+report_name_1:
+  name: METADATA_HISTORY_USAGE
+
+report_name_2:
+  name: HISTORY_USAGE
+
+report_name_3:
+  name: METADATA_HISTORY_GREENBUTTON
+
+report_name_4:
+  name: HISTORY_GREENBUTTON
+
+report_name_5:
+  name: METADATA_TELEMETRY_USAGE
+
+report_name_6:
+  name: TELEMETRY_USAGE
+
+report_name_7:
+  name: METADATA_TELEMETRY_STATUS
+  
+report_name_8:
+  name: TELEMETRY_STATUS

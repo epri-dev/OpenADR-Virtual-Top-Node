@@ -1,0 +1,9 @@
+This software uses, and is distributed with the SMACK XMPP library version 3.3.1,
+distirbuted by Ignite Realtime.  Vist the home page:
+  * http://www.igniterealtime.org/
+  
+The source can be downloaded here: 
+  * http://www.igniterealtime.org/downloads/download-landing.jsp?file=smack/smack_src_3_3_1.tar.gz
+
+SMACK is released under the Apach 2.0 license
+  * http://www.apache.org/licenses/LICENSE-2.0

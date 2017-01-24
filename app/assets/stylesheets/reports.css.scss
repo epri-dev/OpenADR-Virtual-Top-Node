@@ -1,0 +1,63 @@
+// Place all the styles related to the Reports controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.report-graph-controls {
+  display: block;
+  margin: 12px 0px;
+  text-align: left;
+
+  .date-controls {
+    display: block;
+
+    .btn {
+      display: inline-block;
+      vertical-align: top;
+    }
+
+    #report_date {
+      display: inline-block;
+      vertical-align: top;
+      margin: 0px 18px;
+      padding: 0px;
+      width: 180px;
+      font-size: 14px;
+      text-align: center;
+    }
+  }
+
+  .hour-controls {
+
+    margin: 12px 0px;
+
+    #hours {
+      display: inline-block;
+      vertical-align: top;
+      margin: 0px 18px;
+      padding: 0px;
+      width: 180px;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    #hours-label {
+      width: 100px;
+      text-align: right;
+    }
+
+   #hours-slider {
+     margin-top: 3px;
+     width: 405px;
+   }
+  }
+
+  .graph-source-select {
+    display: inline-block;
+    width: 403px;
+    margin: 12px 0px;
+  }
+
+  #generate-graph {
+    margin-left: 10px;
+  }
+}

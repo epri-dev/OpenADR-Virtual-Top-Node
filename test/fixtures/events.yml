@@ -1,0 +1,39 @@
+# == Schema Information
+#
+# Table name: events
+#
+#  id                           :integer          not null, primary key
+#  event_id                     :string(255)
+#  modification_number          :integer
+#  priority                     :integer
+#  market_context_id            :integer
+#  event_status_id              :integer
+#  test_event                   :string(255)
+#  vtn_comment                  :string(255)
+#  dtstart                      :datetime
+#  duration                     :integer
+#  tolerance                    :integer          default(0)
+#  ei_notification              :integer
+#  ei_rampup                    :integer          default(0)
+#  ei_recovery                  :integer          default(0)
+#  created_at                   :datetime         not null
+#  updated_at                   :datetime         not null
+#  response_required_type_id    :integer
+#  template                     :boolean
+#  schedule_id                  :integer
+#  published                    :boolean
+#  payload                      :text
+#  account_id                   :integer
+#  include_subscribed_vens_only :boolean
+#  include_party_id             :boolean
+#  time_zone                    :string(255)      default("UTC")
+#  event_interface_name         :string(255)
+#
+
+event1:
+  event_id: eventID
+  dtstart: 2013-01-01 10:00
+  duration: 1
+  response_required_type_id: 1
+  modification_number: 0
+  priority: 0

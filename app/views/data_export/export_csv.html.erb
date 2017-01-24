@@ -1,0 +1,69 @@
+<% content_for :subnav_items do %>
+  <%= render 'subnav_item', link_text: 'Status', destination_path: data_export_status_path %>
+  <%= render 'subnav_item', link_text: 'Export', destination_path: data_export_export_csv_path %>
+<% end %>
+
+<div class="form">
+
+  <fieldset>
+    
+    <div class="fieldset-heading">
+      
+      <h3>Export Report Intervals to CSV</h3>
+      <div class="list-actions">
+        
+      </div>
+    </div>
+
+    <%= form_tag data_export_export_csv_path(format: :csv), method: 'get' do %>
+
+      <%= fields_for :report_interval_export do |f| %>
+
+        <div class="col-md-4">
+
+          <div class="form-group">
+            <label class="control">
+              Target
+            </label>
+            <div class="control">
+              <%= f.select :target_id, grouped_options_for_select(TargetsHelper.target_options_grouped_by_type, selected: @target_id), {}, { multiple: false, include_blank: false, class: 'form-control chosen-select' } %>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="control">
+              Time Zone
+            </label>
+            <div class="control">
+              <%= f.select :time_zone, grouped_options_for_select(TimeZoneHelper.timezone_options_grouped_by_tzinfo_name, selected: @time_zone), {}, { multiple: false, include_blank: false, class: 'form-control chosen-select ', data: {placeholder: 'select a timezone', max_selected_options: 1}} %>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="control">
+              From
+            </label>
+            <div class="control">
+              <%= f.text_field :first_date, class: 'form-control datepicker', value: @first_date, readonly: 'readonly' %>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="control">
+              To
+            </label>
+            <div class="control">
+              <%= f.text_field :last_date, class: 'form-control datepicker', value: @last_date, readonly: 'readonly' %>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="control">
+              <%= f.submit 'Export to CSV', class: 'btn btn-primary' %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </fieldset>
+</div>

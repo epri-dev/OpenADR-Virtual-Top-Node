@@ -1,0 +1,16 @@
+<%= form_for(test_case_prompt, url: testcaseprompts_execute_path(test_case_prompt), method: :post) do |f| %>
+
+  <fieldset>
+    <h3 class="fieldset-heading"><%= test_case_prompt.test_cases %></h3>
+
+    <p><%= test_case_prompt.instructions %></p>
+
+    <%= f.submit "Execute" %>
+
+    <%= f.hidden_field :id %>
+    <div class="form-group">
+      <%= hidden_field 'test_case_prompt', 'filter', value: @filter %>
+    </div>
+  </fieldset>
+
+<% end %>

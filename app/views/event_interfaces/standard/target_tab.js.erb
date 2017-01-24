@@ -1,0 +1,9 @@
+try {
+
+  $("#target_form").html("<%= escape_javascript(generate_targets_form()) %>");
+
+  $(".processing").slideUp(1000);
+}
+catch (err) {
+  alert(err);
+}

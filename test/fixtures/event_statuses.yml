@@ -1,0 +1,35 @@
+# == Schema Information
+#
+# Table name: event_statuses
+#
+#  id          :integer          not null, primary key
+#  name        :string(255)
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  description :string(255)
+#
+
+
+none:
+  name: "none"
+  description: "No event pending"
+
+far:
+  name: "far"
+  description: "event pending in the far future. The exact definition of how far in the future this refers is dependent upon the market context, but typically means the next day."
+
+near:
+  name: "near"
+  description: "event pending in the near future. The exact definition of how near in the future the pending event is active is dependent on the market context"
+
+active:
+  name: "active"
+  description: "The event has been initiated and is currently active."
+
+completed:
+  name: "completed"
+  description: "The event has completed."
+
+cancelled:
+  name: "cancelled"
+  description: "The event has been canceled."

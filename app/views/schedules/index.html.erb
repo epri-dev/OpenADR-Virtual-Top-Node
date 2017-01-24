@@ -1,0 +1,7 @@
+<%= generate_error flash[:error] %>
+<%= generate_notice notice %>
+
+<%= generate_schedule_list(@schedules, Schedule, "Schedules",
+    [:start_date, :end_date, :start_time_str, :comment],
+    new_schedule_path,
+    "Create Schedule") %>

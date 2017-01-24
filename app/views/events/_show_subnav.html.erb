@@ -1,0 +1,7 @@
+<% content_for :subnav_items do %>
+  <%= render 'subnav_item', link_text: 'Events', destination_path: events_path %>
+  <%= render 'subnav_item', link_text: 'Calendar', destination_path: events_calendar_path(year: params[:year], month: params[:month], date: params[:date]) %>
+  <%= render 'subnav_item', link_text: @event_interface.event.event_id, destination_path: event_path(@event_interface.event) %>
+  <%= render 'subnav_item', link_text: 'Status', destination_path: event_status_path(@event_interface.event) %>
+  <%= render 'subnav_item', link_text: 'Advanced', destination_path: event_advanced_path(@event_interface.event) if current_account.is_admin? && @event_interface.event.event_interface_name != 'Standard' %>
+<% end %>

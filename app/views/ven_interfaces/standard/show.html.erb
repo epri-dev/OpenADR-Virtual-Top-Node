@@ -1,0 +1,191 @@
+<%= render 'vens/show_subnav' %>
+
+<%= render 'vens/form_errors' %>
+
+<%  (['advanced_show', 'advanced_update'].include? action_name) ? @update_path = ven_advanced_path(@ven_interface.ven) : @update_path = ven_path(@ven_interface.ven)%>
+
+<ul class="nav nav-tabs">
+  <li><a data-toggle="tab" href="#ven-settings">VEN Settings</a></li>
+  <li><a data-toggle="tab" href="#registrations">Registrations</a></li>
+  <li><a data-toggle="tab" href="#resources">Resources</a></li>
+  <li><a data-toggle="tab" href="#subscriptions">Subscriptions</a></li>
+  <li><a data-toggle="tab" href="#reports">Reports</a></li>
+  <li><a data-toggle="tab" href="#opt-schedules">Opt Schedules</a></li>
+</ul>
+
+<div class="tab-content">
+  <div class="tab-pane" id="ven-settings">
+    
+    <% if current_account.is_admin? %>
+      <%= form_for :ven_interface, url: vens_change_account_path(@ven_interface.ven), method: 'put', html: { class: 'form form-horizontal' } do |f| %>
+        <%= f.fields_for :ven, @ven_interface.ven do |ff| %>
+          <%= build_fieldset_solo(
+              ff, "Account",
+              [:account_id],
+              @ven_interface,
+              @ven_interface.ven
+            )
+          %>
+        <% end %>
+      <% end %>
+    <% end %>
+
+    <%= form_for :ven_interface, url: @update_path, method: 'put', html: { class: 'form form-horizontal' } do |f| %>
+      <%= f.fields_for :ven, @ven_interface.ven do |ff| %>
+        <%= build_fieldset_solo(
+            ff, "Identification",
+            [:name, :common_name, :ven_id, :email],
+            @ven_interface,
+            @ven_interface.ven
+          )
+        %>
+      <% end %>
+    <% end %>
+
+    <%= form_for :ven_interface, url: @update_path, method: 'put', html: { class: 'form form-horizontal' } do |f| %>
+      <%= f.fields_for :ven, @ven_interface.ven do |ff| %>
+        <%= build_fieldset_solo(
+            ff, "OpenADR Profile Settings",
+            [:profile_id, :http_push, :transport_address],
+            @ven_interface,
+            @ven_interface.ven
+          )
+        %>
+      <% end %>
+    <% end %>
+
+    <%= form_for :ven_interface, url: @update_path, method: 'put', html: { class: 'form form-horizontal' } do |f| %>
+      <%= f.fields_for :ven, @ven_interface.ven do |ff| %>
+        <%= build_fieldset_solo(
+            ff, "Capabilities",
+            [:shed_capability, :ramp_period, :recovery_period],
+            @ven_interface,
+            @ven_interface.ven
+          )
+        %>
+      <% end %>
+    <% end %>
+
+    <%= form_for :ven_interface, url: @update_path, method: 'put', html: { class: 'form form-horizontal' } do |f| %>
+      <%= f.fields_for :ven, @ven_interface.ven do |ff| %>
+        <%= build_fieldset_solo(
+            ff, "VEN Location",
+            [:time_zone, :address, :address_extra, :city, :state, :zip, :geospatial_location, :grid_electrical_coordinates],
+            @ven_interface,
+            @ven_interface.ven
+          )
+        %>
+      <% end %>
+    <% end %>
+
+    <div class="form">
+      <fieldset id="destroy">
+        <h3 class="fieldset-heading">Destroy VEN</h3>
+            <div class="form-group">
+              <div class="control">
+                <%= link_to 'Destroy VEN', ven_path(@ven_interface.ven), class: 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %>
+              </div>
+            </div>
+      </fieldset>
+    </div>
+
+  </div>
+
+  <div class="tab-pane" id="registrations">
+    <%= generate_ven_admin_control(@ven_interface.ven) %>
+
+    <% if not @ven_interface.ven.registration.nil? %>
+      <%= generate_view_details_column(@ven_interface.ven.registration, Registration, "VEN Registration Details",
+         [:request_id, :registration_id, :ven_id, :oadr_profile_name, :oadr_transport_name,
+          :oadr_report_only, :oadr_xml_signature, :oadr_ven_name, :oadr_http_pull_model, :oadr_transport_address], true)
+      %>
+    <% else %>
+      <h2>VEN Not Registered</h2>
+    <% end %>
+  </div>
+  <div class="tab-pane" id="resources">
+    <%= generate_list(@ven_interface.ven.resources, Resource, "VEN Resources",
+        [:name, :resource_type_id, :address, :shed_capability, :ramp_period, :recovery_period],
+        new_ven_resource_path(@ven_interface.ven),
+        "Add Resource") %>
+  </div>
+  <div class="tab-pane" id="subscriptions">
+
+    <div class="form">
+        <fieldset>
+            <h3 class="fieldset-heading">Market Context Subscriptions</h3>
+
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Market Context</th>
+                  <th>Party ID</th>
+                  <th></th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <% @ven_interface.subscriptions.each do |record| %>
+
+                  <tr>
+                    <td>
+                      <%= record.name %>
+                    </td>
+                    <td>
+                      <%= record.party_name %>
+                    </td>
+
+                    <td>
+                      <div class="actions">
+
+                        <% if record.party_name.nil? %>
+
+                          <%= form_for(:market_contexts, url: subscribe_market_context_path(record.market_context_id, @ven_interface.ven.id)) do |f| %>
+
+                            <div class="actions">
+                              <%= f.submit "Subscribe", class: 'btn btn-primary btn-xs' %>
+                            </div>
+
+                          <% end %>
+
+                        <% else %>
+
+                          <%= form_for(:market_contexts, url: unsubscribe_market_context_path(record.market_context_id, @ven_interface.ven.id)) do |f| %>
+
+                            <div class="actions">
+                              <%= f.submit "Unsubscribe", class: 'btn btn-primary btn-xs' %>
+                            </div>
+
+                          <% end %>
+
+                        <% end %>
+
+                      </div>
+                    </td>
+                  </tr>
+
+                <% end %>
+              </tbody>
+
+            </table>
+        </fieldset>
+    </div>
+
+  </div>
+  <div class="tab-pane" id="reports">
+
+    <%= generate_list(@ven_interface.ven.reports, Report, "Reports",
+                        [:report_specifier_id, :created_date_time, :duration, :report_name_id],
+                        nil,
+                        "Add Report") %>
+
+    <%= generate_list(@ven_interface.ven.create_reports, CreateReport, "Report Requests",
+        [:name, :description, :request_id, :active],
+        new_ven_create_report_path(@ven_interface.ven),
+        "Create Report Request") %>
+
+  </div>
+  <div class="tab-pane" id="opt-schedules">
+    <%= generate_list(@ven_interface.ven.opt_schedules, OptSchedule, "Opt Schedules", [:opt_id, :opt_reason_id, :opt_type_id], nil, '') %>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+<nav class="navbar header" role="navigation">
+
+  <div class="logo">
+    <%= link_to(image_tag('epri-logo.jpg', alt: 'EPRI logo'), root_path, class: 'logo vissible-sm hidden-xs') %>
+  </div>
+
+  <h3 class="utility-id">
+    Auto DR Test Server
+  </h3>
+
+
+  <ul class="header-actions">
+    <li class="user-session-info">
+      <% if signed_in? %>
+        <%= link_to "Log out", logout_path, method: "delete", class: 'btn btn-primary' %>
+        <span>
+          <%= link_to current_account.name, current_account %>
+        </span>
+      <% else %>
+        <%= link_to "Log in", login_path, class: 'btn btn-primary' %>
+        <span>
+          not signed in
+        </span>
+      <% end %>
+    </li>
+    <li>
+      <%= link_to image_tag('epri-e.png'), about_path %>
+      <span>About</span>
+    </li>
+  </ul>
+</nav>

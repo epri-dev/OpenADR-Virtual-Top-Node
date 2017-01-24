@@ -1,0 +1,11 @@
+<% content_for :subnav_items do %>
+  <%= render 'application/menu_item_subnav_groups/vtn_config_subnav_items' %>
+<% end %>
+
+<%= generate_error flash[:error] %>
+<%= generate_notice flash[:notice] %>
+
+<%= generate_errors @resource_type, "prohibited this Resource Type from being saved:" %>
+
+<%= generate_edit_table(@resource_types, @resource_type,
+    ResourceType, "Resouce Types", [:name, :description]) %>

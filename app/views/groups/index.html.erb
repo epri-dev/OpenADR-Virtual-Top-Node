@@ -1,0 +1,13 @@
+<% content_for :subnav_items do %>
+  <%= render 'application/menu_item_subnav_groups/vtn_config_subnav_items' %>
+<% end %>
+
+<%= generate_error flash[:error] %>
+<%= generate_notice flash[:notice] %>
+
+<%= generate_errors @group, "prohibited this Group from being saved:" %>
+
+<%= generate_edit_table(@groups, @group,
+    Group, "Groups", [:name, :description], method(:edit_group_path)) %>
+
+<%= render 'application/membership' %>

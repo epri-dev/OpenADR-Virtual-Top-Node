@@ -1,0 +1,13 @@
+<% content_for :subnav_items do %>
+    <%= render 'subnav_item', link_text: 'Time of Use Schedules', destination_path: tou_schedules_path %>
+    <%= render 'subnav_item', link_text: 'Holidays', destination_path: holidays_path %>
+<% end %>
+
+
+<%= generate_notice notice %>
+<%= generate_error flash[:error] %>
+
+<%= generate_errors @holiday, "prohibited this holiday from being updated:" %>
+
+<%= generate_edit_table(@holidays, @holiday,
+    Holiday, "Holidays", [:name, :date]) %>

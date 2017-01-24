@@ -1,0 +1,14 @@
+<% content_for :subnav_items do %>
+  <%= render 'subnav_item', link_text: 'VEN', destination_path: ven_path(@create_report.ven.id) %>
+<% end %>
+
+<%= generate_notice notice %>
+<%= generate_error flash[:error] %>
+
+<%= generate_errors @create_report, "prohibited this Report Request from being created:" %>
+
+<%= generate_edit_columns [@ven, @create_report], CreateReport,
+                             "Report Request",
+                             [:name, :description, nil],
+                             "Create Report Request"
+%>

@@ -1,0 +1,12 @@
+<% content_for :subnav_items do %>
+    <%= render 'subnav_item', link_text: 'Time of Use Schedules', destination_path: tou_schedules_path %>
+    <%= render 'subnav_item', link_text: 'Holidays', destination_path: holidays_path %>
+<% end %>
+
+<%= generate_error flash[:error] %>
+<%= generate_notice flash[:notice] %>
+
+<%= generate_list(@tou_schedules, TouSchedule, "TOU Schedules",
+                  [:name, :is_active],
+                  new_tou_schedule_path,
+                  "Create TOU Schedule") %>

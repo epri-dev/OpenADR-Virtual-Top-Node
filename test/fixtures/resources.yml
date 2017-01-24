@@ -1,0 +1,25 @@
+# == Schema Information
+#
+# Table name: resources
+#
+#  id                          :integer          not null, primary key
+#  address                     :string(255)
+#  state                       :string(255)
+#  zip                         :integer
+#  geospatial_location         :string(255)
+#  grid_electrical_coordinates :string(255)
+#  shed_capability             :float
+#  ramp_period                 :integer
+#  recovery_period             :integer
+#  ven_id                      :integer
+#  resource_type_id            :integer
+#  created_at                  :datetime         not null
+#  updated_at                  :datetime         not null
+#  name                        :string(255)
+#
+
+resource1:
+  name: "resource1"
+
+resource2:
+  name: "resource2"

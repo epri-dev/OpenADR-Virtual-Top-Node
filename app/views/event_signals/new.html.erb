@@ -1,0 +1,20 @@
+<% content_for :subnav_items do %>
+  <%= render 'subnav_item', link_text: 'Event', destination_path: event_path(@event_signal.event.id) %>
+<% end %>
+
+<%= generate_notice notice %>
+<%= generate_error flash[:error] %>
+
+<%= generate_errors @event_signal, "prohibited this event from being created:" %>
+
+<%= generate_edit_columns [@event, @event_signal], EventSignal,
+    "New Event Signal",
+    [:signal_name_id, :signal_type_id, nil],
+    "Create Signal"
+%>
+
+<%= generate_edit_columns [@event, @event_signal], EventSignal,
+   "New Event Baseline",
+   [:dtstart, :duration, :baseline_name],
+   "Create Baseline"
+%>

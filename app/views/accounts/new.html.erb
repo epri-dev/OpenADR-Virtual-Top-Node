@@ -1,0 +1,16 @@
+<% content_for :subnav_items do %>
+  <%= render 'subnav_item', link_text: 'Accounts', destination_path: accounts_path %>
+<% end %>
+
+<%= generate_notice notice %>
+<%= generate_error flash[:error] %>
+
+<%= generate_errors @account, "prohibited this account from being created:" %>
+
+<%= generate_edit_columns @account, Account,
+    "New Account",
+    [:name, :email, :password, :password_confirmation, nil, nil],
+    "Create Account"
+%>
+
+<%= link_to 'Back', accounts_path, class: 'btn btn-default' %>

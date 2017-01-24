@@ -1,0 +1,120 @@
+fieldset {
+
+  .fieldset-heading {
+    position: relative;
+    padding: 0px;
+
+    h3 {
+      display: inline-block;
+      vertical-align: top;
+      margin: 0px;
+    }
+
+    .list-actions {
+      display: inline-block;
+      vertical-align: top;
+      margin: -2px 0px -4px 0px;
+
+      .btn {
+        margin: 0px;
+      }
+
+      .new-record {
+        display: inline-block;
+        vertical-align: top;
+      }
+
+      .form-wrapper {
+        display: inline-block;
+        vertical-align: top;
+        position: relative;
+        margin: -8px 48px -12px 48px;
+
+        form {
+          display: inline-block;
+          vertical-align: top;
+          width: 280px;
+          background-color: #e8eeee;
+          border: 1px solid #ddd; 
+        }
+      }
+    }
+  }
+}
+
+/* * * * * * * * * * * * * * * * */
+
+form.search, form.filter {
+  // Any search-form-specific width should be set in the file containing that class's styles (e.g. 'events.css.scss')
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 10;
+  margin: 0px;
+  padding: 6px 18px;
+
+  .standard-fields {
+    // text-align: right;
+
+    input[type=text].form-control {
+      display: inline-block;
+      width: 165px;
+    }
+  }
+
+  .advanced-toggle {
+    position: absolute;
+    right: 36px;
+    bottom: -14px;
+    height: 14px;
+    transition: all .15s;
+    transition-delay: .5s;
+    padding: 0px 6px;
+    line-height: 8px;
+    text-align: center;
+    background-color: $brand-primary;
+    cursor: pointer;
+    color: #fff;
+  }
+
+  .advanced-fields {
+    height: 0px;
+    overflow: hidden;
+  }
+
+  &.advanced-active {
+    padding: 18px;
+
+    .standard-fields {
+      margin-top: 6px;
+    }
+
+    .advanced-toggle {
+      
+    }
+
+    .advanced-fields {
+      height: inherit;
+      overflow: visible;
+    }
+  }
+}
+
+/* * * * * * * * * * * * * * * * */
+
+.clear-search-params, .clear-filter-params {
+  display: block;
+  width: 200px;
+  margin: 0px 0px 12px 0px;
+  font-size: 1.1em;
+
+  &:hover, &:active {
+    text-decoration: none;
+  }
+
+  .icon {
+    position: relative;
+    top: 2px;
+    font-size: 1.1em;
+  }
+}

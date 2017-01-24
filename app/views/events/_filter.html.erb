@@ -1,0 +1,21 @@
+<div class="form-wrapper">
+    &nbsp;
+    <%= form_tag events_calendar_path(destination_date_params(@date_string)), method: 'get', class: 'search filter' do %>
+      <div class="advanced-toggle">...</div>
+
+      <div class="advanced-fields">
+
+        <div class="form-group">
+          <%= label_tag :market_context_ids, 'Program(s)', class: 'control-label' %><br>
+          <%= select_tag :market_context_ids, options_from_collection_for_select(MarketContext.all, :id, :name, selected: @market_context_ids), { multiple: true, class: 'form-control chosen-select' } %>
+        </div>
+  
+      </div>
+
+      <div class="standard-fields">
+        <%= text_field_tag :date, @date_string.to_date.strftime("%a, %b %-d %Y"), class: 'form-control', readonly: 'readonly' %>
+        <%= submit_tag 'Search', class: 'btn btn-primary' %>
+      </div>
+
+  <% end %>
+</div>

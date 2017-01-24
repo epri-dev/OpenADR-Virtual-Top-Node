@@ -1,0 +1,46 @@
+<%= render 'events/show_subnav' %>
+
+<%= render partial: 'events/form_errors', locals: { object: @event_interface } %>
+
+<%  (['advanced_show', 'advanced_update'].include? action_name) ? @update_path = event_advanced_path(@event_interface.event) : @update_path = event_path(@event_interface.event)%>
+
+<ul class="nav nav-tabs">
+
+  <% if @event_interface.event.template == true %>
+    
+    <li><a data-toggle="tab" href="#schedule">Schedule</a></li>
+
+  <% else %>
+
+    <li><a data-toggle="tab" href="#publish">Publish</a></li>
+
+  <% end %>
+
+  <li><a data-toggle="tab" href="#settings">Settings</a></li>
+  <li><a data-toggle="tab" href="#response">Response</a></li>
+  <li><a data-toggle="tab" href="#signals">Signals</a></li>
+  <li><a data-toggle="tab" href="#targets">Targets</a></li>
+
+</ul>
+
+<div class="tab-content">
+
+  <% if @event_interface.event.template == true %>
+
+    <%= render "event_interfaces/#{ @event_interface.view_directory }/tab_panes/schedule" %>
+
+  <% else %>
+
+    <%= render "event_interfaces/#{ @event_interface.view_directory }/tab_panes/publish" %>
+
+  <% end %>
+
+  <%= render "event_interfaces/#{ @event_interface.view_directory }/tab_panes/settings" %>
+
+  <%= render "event_interfaces/#{ @event_interface.view_directory }/tab_panes/response" %>
+
+  <%= render "event_interfaces/#{ @event_interface.view_directory }/tab_panes/signals" %>
+
+  <%= render "event_interfaces/#{ @event_interface.view_directory }/tab_panes/targets" %>
+  
+</div>

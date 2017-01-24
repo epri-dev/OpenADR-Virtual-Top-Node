@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<p1:oadrPayload xmlns:p1="http://openadr.org/oadr-2.0b/2012/07">
+  <p1:oadrSignedObject>
+    <p1:oadrUpdateReport xmlns:p3="http://docs.oasis-open.org/ns/energyinterop/201110" p3:schemaVersion="2.0b" xmlns:p2="http://docs.oasis-open.org/ns/energyinterop/201110/payloads">
+      <p2:requestID>D0472F5DDB</p2:requestID>
+      <p1:oadrReport xmlns:p3="urn:ietf:params:xml:ns:icalendar-2.0" xmlns:p4="urn:ietf:params:xml:ns:icalendar-2.0:stream" xmlns:p5="http://docs.oasis-open.org/ns/energyinterop/201110">
+        <p3:dtstart>
+<p3:date-time>2015-10-14T07:16:00Z</p3:date-time>
+        </p3:dtstart>
+        <p4:intervals xmlns:p5="http://docs.oasis-open.org/ns/energyinterop/201110">
+          <p5:interval>
+            <p3:dtstart>
+<p3:date-time>2015-10-14T07:16:00Z</p3:date-time>
+            </p3:dtstart>
+            <p3:duration>
+              <p3:duration>PT1M</p3:duration>
+            </p3:duration>
+            <p1:oadrReportPayload>
+              <p5:rID>water heater inst power</p5:rID>
+              <p5:confidence>1</p5:confidence>
+              <p5:accuracy>1</p5:accuracy>
+              <p5:payloadFloat>
+                <p5:value>2</p5:value>
+              </p5:payloadFloat>
+              <p1:oadrDataQuality>Quality Good - Non Specific</p1:oadrDataQuality>
+            </p1:oadrReportPayload>
+            <p1:oadrReportPayload>
+              <p5:rID>water heater present capacity</p5:rID>
+              <p5:confidence>1</p5:confidence>
+              <p5:accuracy>1</p5:accuracy>
+              <p5:payloadFloat>
+                <p5:value>8</p5:value>
+              </p5:payloadFloat>
+              <p1:oadrDataQuality>Quality Good - Non Specific</p1:oadrDataQuality>
+            </p1:oadrReportPayload>
+            <p1:oadrReportPayload>
+              <p5:rID>water heater total capacity</p5:rID>
+              <p5:confidence>1</p5:confidence>
+              <p5:accuracy>1</p5:accuracy>
+              <p5:payloadFloat>
+                <p5:value>3</p5:value>
+              </p5:payloadFloat>
+              <p1:oadrDataQuality>Quality Good - Non Specific</p1:oadrDataQuality>
+            </p1:oadrReportPayload>
+          </p5:interval>
+        </p4:intervals>
+<p5:reportRequestID>RR_64de589275235fe8636f</p5:reportRequestID>
+<p5:reportSpecifierID>WATER_HEATER_TELEMETRY_USAGE</p5:reportSpecifierID>
+        <p5:reportName>TELEMETRY_USAGE</p5:reportName>
+<p5:createdDateTime>2015-10-14T07:16:42Z</p5:createdDateTime>
+      </p1:oadrReport>
+      <p3:venID>89adbb0282743cd18520</p3:venID>
+    </p1:oadrUpdateReport>
+  </p1:oadrSignedObject>
+</p1:oadrPayload>

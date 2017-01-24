@@ -1,0 +1,16 @@
+<% content_for :subnav_items do %>
+  <%= render 'subnav_item', link_text: 'Units', destination_path: emix_units_path %>
+<% end %>
+
+<%= generate_notice notice %>
+<%= generate_error flash[:error] %>
+
+<%= generate_errors @emix_unit, "prohibited this Unit from being saved:" %>
+
+<%= generate_edit_columns @emix_unit, EmixUnit,
+                             "New Unit",
+                             [:unit_type_id, nil, nil],
+                             "Create Unit"
+%>
+
+<%= link_to 'Back to Units', emix_units_path, class: 'btn btn-default' %>

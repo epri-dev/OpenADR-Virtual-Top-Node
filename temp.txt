@@ -1,0 +1,96 @@
+Unknown
+* activerecord-jdbcmysql-adapter 1.2.9 (https://github.com/jruby/activerecord-jdbc-adapter) - MySQL JDBC adapter for JRuby on Rails.
+* activerecord-jdbcsqlite3-adapter 1.2.9 (https://github.com/jruby/activerecord-jdbc-adapter) - Sqlite3 JDBC adapter for JRuby on Rails.
+* bcrypt-ruby 3.0.1 (http://bcrypt-ruby.rubyforge.org) - OpenBSD's bcrypt() password hashing algorithm.
+* blankslate 2.1.2.4 (http://github.com/masover/blankslate) - BlankSlate extracted from Builder.
+* bundler-unload 1.0.1 (https://github.com/mpapis/bundler-unload) - Allow unloading bundler after Bundler.load
+* choice 0.1.6 (http://choice.rubyforge.org/) - Choice is a command line option parser.
+* coffee-script 2.2.0 (http://github.com/josh/ruby-coffee-script) - Ruby CoffeeScript Compiler
+* diff-lcs 1.2.4 (http://diff-lcs.rubyforge.org/) - Diff::LCS computes the difference between two Enumerable sequences using the McIlroy-Hunt longest common subsequence (LCS) algorithm
+* httpclient 2.2.7 (http://github.com/nahi/httpclient) - gives something like the functionality of libwww-perl (LWP) in Ruby
+* jdbc-mysql 5.1.25 (https://github.com/jruby/activerecord-jdbc-adapter) - MySQL JDBC driver for JRuby and MySQL/ActiveRecord-JDBC (activerecord-jdbcmysql-adapter).
+* jquery-ui-rails 4.0.3 (https://github.com/joliss/jquery-ui-rails) - jQuery UI packaged for the Rails asset pipeline
+* jruby-jars 1.7.4 (http://github.com/jruby/jruby/tree/master/gem/jruby-jars) - The core JRuby code and the JRuby stdlib as jar files.
+* jruby-rack 1.1.13.2 (http://jruby.org) - Rack adapter for JRuby and Servlet Containers
+* parslet 1.4.0 (http://kschiess.github.com/parslet) - Parser construction library with great error reporting in Ruby.
+* rack 1.4.5 (http://rack.github.com/) - a modular Ruby webserver interface
+* rack-cache 1.2 (http://tomayko.com/src/rack-cache/) - HTTP Caching for Rack
+* rack-ssl 1.3.3 (https://github.com/josh/rack-ssl) - Force SSL/TLS in your app.
+* rails 3.2.12 (http://www.rubyonrails.org) - Full-stack web application framework.
+* rdoc 3.12.2 (http://docs.seattlerb.org/rdoc) - RDoc produces HTML and command-line documentation for Ruby projects
+* ruby-graphviz 1.0.9 (http://github.com/glejeune/Ruby-Graphviz) - Interface to the GraphViz graphing tool
+* rubygems-bundler 1.2.2 (http://mpapis.github.com/rubygems-bundler) - Stop using bundle exec
+* spork-testunit 0.0.8 (http://github.com/timcharper/spork-testunit) - spork-testunit
+* sprockets 2.2.2 (http://getsprockets.org/) - Rack-based asset packaging system
+* therubyrhino_jar 1.7.4 (http://github.com/cowboyd/therubyrhino) - Rhino's jars packed for therubyrhino
+* tzinfo 0.3.37 (http://tzinfo.rubyforge.org/) - Daylight-savings aware timezone library
+* warbler 1.4.0.beta1 (http://caldersphere.rubyforge.org/warbler) - Warbler chirpily constructs .war files of your Rails applications.
+Mit
+* actionmailer 3.2.12 (http://www.rubyonrails.org) - Email composition, delivery, and receiving framework (part of Rails).
+* actionpack 3.2.12 (http://www.rubyonrails.org) - Web-flow and rendering framework putting the VC in MVC (part of Rails).
+* activemodel 3.2.12 (http://www.rubyonrails.org) - A toolkit for building modeling frameworks (part of Rails).
+* activerecord 3.2.12 (http://www.rubyonrails.org) - Object-relational mapper framework (part of Rails).
+* activeresource 3.2.12 (http://www.rubyonrails.org) - REST modeling framework (part of Rails).
+* activesupport 3.2.12 (http://www.rubyonrails.org) - A toolkit of support libraries and Ruby core extensions extracted from the Rails framework.
+* arel 3.0.2 (http://github.com/rails/arel) - Arel is a SQL AST manager for Ruby
+* builder 3.0.4 (http://onestepback.org) - Builders for MarkUp.
+* bundler 1.3.5 (http://gembundler.com) - The best way to manage your application's dependencies
+* coffee-rails 3.2.2 () - Coffee Script adapter for the Rails asset pipeline.
+* coffee-script-source 1.6.3 (http://jashkenas.github.com/coffee-script/) - The CoffeeScript Compiler
+* edn 1.0.0 () - 'edn implements a reader for Extensible Data Notation by Rich Hickey.'
+* erubis 2.7.0 (http://www.kuwata-lab.com/erubis/) - a fast and extensible eRuby implementation which supports multi-language
+* execjs 1.4.0 (https://github.com/sstephenson/execjs) - Run JavaScript code from Ruby
+* gem-licenses 0.1.2 (http://github.com/dblock/gem-licenses) - List all gem licenses.
+* hike 1.2.3 (http://github.com/sstephenson/hike) - Find files in a set of paths
+* i18n 0.6.5 (http://github.com/svenfuchs/i18n) - New wave Internationalization support for Ruby
+* journey 1.0.4 (http://github.com/rails/journey) - Journey is a router
+* jquery-rails 3.0.4 (http://rubygems.org/gems/jquery-rails) - Use jQuery with Rails 3
+* mail 2.4.4 (http://github.com/mikel/mail) - Mail provides a nice Ruby DSL for making, sending and reading emails.
+* mime-types 1.23 (http://mime-types.rubyforge.org/) - This library allows for the identification of a file's likely MIME content type
+* multi_json 1.7.9 (http://github.com/intridea/multi_json) - A common interface to multiple JSON libraries.
+* polyglot 0.3.3 (http://github.com/cjheath/polyglot) - Augment 'require' to load non-Ruby file types
+* rack-test 0.6.2 (http://github.com/brynary/rack-test) - Simple testing API built on Rack
+* rails-erd 1.1.0 (http://rails-erd.rubyforge.org/) - Entity-relationship diagram for your Rails models.
+* railties 3.2.12 (http://www.rubyonrails.org) - Tools for creating, working with, and running Rails applications.
+* rake 10.1.0 (http://rake.rubyforge.org) - Ruby based make-like utility.
+* rspec 2.14.1 (http://github.com/rspec) - rspec-2.14.1
+* rspec-core 2.14.3 (http://github.com/rspec/rspec-core) - rspec-core-2.14.3
+* rspec-expectations 2.14.0 (http://github.com/rspec/rspec-expectations) - rspec-expectations-2.14.0
+* rspec-mocks 2.14.1 (http://github.com/rspec/rspec-mocks) - rspec-mocks-2.14.1
+* rspec-rails 2.14.0 (http://github.com/rspec/rspec-rails) - rspec-rails-2.14.0
+* sass 3.2.9 (http://sass-lang.com/) - A powerful but elegant CSS compiler that makes CSS fun again.
+* sass-rails 3.2.6 () - Sass adapter for the Rails asset pipeline.
+* spork 1.0.0rc3 (http://github.com/sporkrb/spork) - spork
+* therubyrhino 2.0.2 (http://github.com/cowboyd/therubyrhino) - Embed the Rhino JavaScript interpreter into JRuby
+* thor 0.18.1 (http://whatisthor.com/) - A scripting framework that replaces rake, sake and rubigen
+* tilt 1.4.1 (http://github.com/rtomayko/tilt/) - Generic interface to multiple Ruby template engines
+* treetop 1.4.14 (https://github.com/cjheath/treetop) - A Ruby-based text parsing and interpretation DSL
+* uglifier 2.1.2 (http://github.com/lautis/uglifier) - Ruby wrapper for UglifyJS JavaScript compressor
+Artistic 2.0
+* mime-types 1.23 (http://mime-types.rubyforge.org/) - This library allows for the identification of a file's likely MIME content type
+Gpl-2
+* mime-types 1.23 (http://mime-types.rubyforge.org/) - This library allows for the identification of a file's likely MIME content type
+Bsd
+* activerecord-jdbc-adapter 1.2.9.1 (https://github.com/jruby/activerecord-jdbc-adapter) - JDBC adapter for ActiveRecord, for use within JRuby on Rails.
+Apache
+* jdbc-sqlite3 3.7.2.1 (https://github.com/jruby/activerecord-jdbc-adapter) - SQLite3 JDBC driver for JRuby and SQLite3/ActiveRecord-JDBC (activerecord-jdbcsqlite3-adapter).
+Same
+* annotate 2.5.0 (http://github.com/ctran/annotate_models) - Annotates Rails Models, routes, fixtures, and others based on the database schema.
+Ruby
+* json 1.8.0 (http://json-jruby.rubyforge.org/) - JSON implementation for JRuby
+* rubyzip 0.9.9 (http://github.com/aussiegeek/rubyzip) - rubyzip is a ruby module for reading and writing zip files
+Ruby's and psfl (lib/test/unit/diff.rb)
+* test-unit 2.5.5 (http://test-unit.rubyforge.org/) - test-unit - Improved version of Test::Unit bundled in Ruby 1.8.x.
+Public domain
+* torquebox 3.0.0 (http://torquebox.org/) - TorqueBox Gem
+* torquebox-cache 3.0.0 (http://torquebox.org/) - TorqueBox Cache Gem
+* torquebox-configure 3.0.0 (http://torquebox.org/) - TorqueBox Configure Gem
+* torquebox-core 3.0.0 (http://torquebox.org/) - TorqueBox Core Gem
+* torquebox-messaging 3.0.0 (http://torquebox.org/) - TorqueBox Messaging Client
+* torquebox-naming 3.0.0 (http://torquebox.org/) - TorqueBox Naming Client
+* torquebox-rake-support 3.0.0 (http://torquebox.org/) - TorqueBox Rake Support
+* torquebox-security 3.0.0 (http://torquebox.org/) - TorqueBox Security Gem
+* torquebox-server 3.0.0 (http://torquebox.org/) - TorqueBox Server Gem
+* torquebox-stomp 3.0.0 (http://torquebox.org/) - TorqueBox STOMP Support
+* torquebox-transactions 3.0.0 (http://torquebox.org/) - TorqueBox Transactions Gem
+* torquebox-web 3.0.0 (http://torquebox.org/) - TorqueBox Web Gem

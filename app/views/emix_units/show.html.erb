@@ -1,0 +1,36 @@
+<% content_for :subnav_items do %>
+  <%= render 'subnav_item', link_text: 'Units', destination_path: emix_units_path %>
+  <%= render 'subnav_item', link_text: @emix_unit.name, destination_path: emix_unit_path(@emix_unit) %>
+<% end %>
+
+<%= generate_notice notice %>
+<%= generate_error flash[:error] %>
+
+<%= generate_errors @emix_unit, "prohibited this Unit from being saved:" %>
+
+<%= generate_view_details_column(@emix_unit, EmixUnit, "Unit Type",
+    [:unit_type_id]) %>
+
+<%=
+
+  case @emix_unit.unit_type.name
+    when 'currency', 'currencyPerKW', 'currencyPerKWh'
+      render 'currency'
+
+    when 'powerReal', 'powerApparent', 'powerReactive'
+      render 'power'
+
+    when 'energyReal', 'energyApparent', 'energyReactive'
+      render 'energy'
+
+    when 'customUnit'
+      render 'custom'
+
+    else
+      render 'unsupported'
+
+  end
+
+%>
+
+<%= link_to 'Back to Units', emix_units_path, class: 'btn btn-default' %>

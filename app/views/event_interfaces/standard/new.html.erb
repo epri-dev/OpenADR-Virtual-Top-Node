@@ -1,0 +1,49 @@
+<%= render 'events/new_subnav' %>
+
+<%= render partial: 'events/form_errors', locals: { object: @event_interface } %>
+
+<%= form_for :event_interface, url: events_path, method: 'post' do |f| %>
+
+  <%= f.fields_for :event, @event_interface.event do |ff| %>
+
+    <%= build_fieldset_multi_member(
+        ff, "Standard Event Details",
+        [:time_zone, :dtstart_str, :duration, :market_context_id, :priority, :response_required_type_id, :vtn_comment, :test_event],
+        @event_interface,
+        @event_interface.event
+      )
+    %>
+
+  <% end %>
+
+  <%= f.fields_for :event_signal, @event_interface.event_signal do |ff| %>
+
+    <%= build_fieldset_multi_member(
+        ff, "Event Signal",
+        [:signal_name_id, :signal_type_id],
+        @event_interface,
+        @event_interface.event_signal
+      )
+    %>
+
+  <% end %>
+
+  <%= f.fields_for :event_signal_interval, @event_interface.event_signal_interval do |ff| %>
+
+    <%= build_fieldset_multi_member(
+        ff, "Event Signal Interval",
+        [:payload],
+        @event_interface,
+        @event_interface.event_signal_interval
+      )
+    %>
+
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit "Create Event", class: 'btn btn-success', id: 'create-event' %>
+  </div>
+
+<% end %>
+
+<%= link_to 'Back', events_path, class: 'btn btn-default' %>

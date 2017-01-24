@@ -1,0 +1,8 @@
+<%= render 'nav' %>
+
+<%= generate_notice notice %>
+<%= generate_error flash[:error] %>
+
+<%= generate_errors @tou_schedule, "prohibited this schedule from being updated:" %>
+
+<%= render 'tou_schedules/hours' %>

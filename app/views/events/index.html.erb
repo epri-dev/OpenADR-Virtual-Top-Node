@@ -1,0 +1,39 @@
+<% javascript 'event_search.js' %>
+
+<% content_for :subnav_items do %>
+  <%= render 'subnav_item', link_text: 'Events', destination_path: events_path %>
+  <%= render 'subnav_item', link_text: 'Calendar', destination_path: events_calendar_path(year: params[:year], month: params[:month], date: params[:date]) %>
+<% end %>
+
+<%= generate_error flash[:error] %>
+<%= generate_notice notice %>
+
+<div class="form">
+
+  <fieldset class="cards-list event-cards">
+    
+    <div class="fieldset-heading">
+      <h3>Events</h3>
+      <div class="list-actions">
+        <%= render 'search' %>
+        <%= link_to 'Create Event', '#', { data: { toggle: 'modal', target: '#modal-interface-picker' }, class: 'btn btn-primary new-record' } %>
+      </div>
+    </div>
+
+    <% if @search_parameters.present? %>
+      <%= link_to events_path, class: 'clear-search-params' do %>
+        <span class="icon glyphicon glyphicon-remove" aria-hidden="true"></span>
+        <span>Clear Search Parameters</span>
+      <% end %>
+    <% end %>
+
+    <% @events.each do |event| %>
+
+      <%= render 'events/event_card', event: event %>
+      
+    <% end %>
+
+  </fieldset>
+</div>
+
+<%= render 'modal_event_interface_picker' %>

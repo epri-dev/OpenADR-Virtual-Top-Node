@@ -1,0 +1,78 @@
+# == Schema Information
+#
+# Table name: accounts
+#
+#  id              :integer          not null, primary key
+#  name            :string(255)
+#  email           :string(255)
+#  password_digest :string(255)
+#  account_number  :string(255)
+#  company         :string(255)
+#  first_name      :string(255)
+#  last_name       :string(255)
+#  phone           :string(255)
+#  contact2        :string(255)
+#  contact3        :string(255)
+#  contact4        :string(255)
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  remember_token  :string(255)
+#  is_admin        :boolean
+#  time_zone       :string(255)      default("UTC")
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: user1
+  email: user1@domain.com
+  account_number: 4321
+  company: acme sofware
+  first_name: jon
+  last_name: doe
+  phone: (555)555-1212
+  contact2: 1234
+  contact3: 1234
+  contact4: 1234
+  time_zone: Hawaii
+
+admin:
+  name: admin
+  email: admin@domain.com
+  is_admin: true
+  account_number: 4321
+  company: acme sofware
+  first_name: jon
+  last_name: doe
+  phone: (555)555-1212
+  contact2: 1234
+  contact3: 1234
+  contact4: 1234
+  time_zone: Hawaii
+
+admin2:
+  name: admin2
+  email: admin2@domain.com
+  is_admin: true
+  account_number: 4321
+  company: acme sofware
+  first_name: jon
+  last_name: doe
+  phone: (555)555-1212
+  contact2: 1234
+  contact3: 1234
+  contact4: 1234
+  time_zone: Hawaii
+
+two:
+  name: MyString
+  email: MyString
+  account_number: MyString
+  company: MyString
+  first_name: MyString
+  last_name: MyString
+  phone: MyString
+  contact2: MyString
+  contact3: MyString
+  contact4: MyString
+  time_zone: Hawaii

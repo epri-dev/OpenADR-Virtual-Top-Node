@@ -1,0 +1,7 @@
+<%= generate_view_details_column(@opt_schedule, OptSchedule, "Opt Schedule",
+    [:request_id, :opt_id, :opt_type_id, :opt_reason_id, :market_context_id, :ven_id, :active], true) %>
+
+<%= generate_list_readonly(@opt_schedule.opt_schedule_durations, OptScheduleDuration, "Opt Schedule Durations",
+    [:dtstart, :duration, :ei_notification, :ei_ramp_up, :ei_recovery, :tolerance]) %>
+
+<%= link_to 'Back to VEN', ven_path(@opt_schedule.ven), class: 'btn btn-default' %>

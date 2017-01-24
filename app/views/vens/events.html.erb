@@ -1,0 +1,30 @@
+<%= render 'vens/show_subnav' %>
+
+<div class="form">
+
+  <fieldset class="cards-list ven-event-cards">
+    
+    <div class="fieldset-heading">
+      <h3><%= "Events Targeting #{ @ven.name }" %></h3>
+      <div class="list-actions">
+      </div>
+    </div>
+
+    <% if !@events.empty? %>
+
+      <% @events.each do |event| %>
+
+        <%= render 'vens/ven_event_card', event: event %>
+        
+      <% end %>
+
+    <% else %>
+
+      <div class="blank_slate_container">
+        <h4>This VEN has no events.</h4>
+      </div>
+    
+    <% end %>
+
+  </fieldset>
+</div>

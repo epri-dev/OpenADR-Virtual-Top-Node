@@ -1,0 +1,18 @@
+# == Schema Information
+#
+# Table name: vtn_parameters
+#
+#  id              :integer          not null, primary key
+#  vtn_name        :string(255)
+#  poll_interval   :integer
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  ven_id          :integer
+#  endpoint20a_url :string(255)
+#  endpoint20b_url :string(255)
+#
+
+
+param1:
+  vtn_name: "EPRI_VTN"
+  poll_interval: 10

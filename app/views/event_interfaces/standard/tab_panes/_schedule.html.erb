@@ -1,0 +1,12 @@
+<div class="tab-pane" id="schedule">
+    <% # generate_errors @schedule, "prohibited this schedule from being updated:" %>
+
+    <%= generate_view_details_column(@event_interface.schedule, Schedule, "Schedule Duration and Event Start Time",
+        [:start_date, :end_date, :start_time_str]) %>
+
+    <%= generate_view_details_column(@event_interface.schedule, Schedule, "Weekdays",
+        [:monday, :tuesday, :wednesday, :thursday, :friday]) %>
+
+    <%= generate_view_details_column(@event_interface.schedule, Schedule, "Weekends",
+        [:saturday, :sunday]) %>
+</div>

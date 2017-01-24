@@ -1,0 +1,24 @@
+<% javascript 'report_requests.js' %>
+
+<% content_for :subnav_items do %>
+  <%= render 'subnav_item', link_text: 'CreateReport', destination_path: create_report_path(@report_request.create_report.id) %>
+  <%= render 'subnav_item', link_text: 'ReportRequest', destination_path: report_request_path(@report_request) %>
+<% end %>
+
+<%= generate_notice notice %>
+
+<%= generate_errors @report_request, "prohibited this request from being created:" %>
+
+<%= generate_view_details_column(@report_request, ReportRequest, "Request ID",
+                                     [:request_id], true)
+%>
+
+<%= generate_view_details_column(@report_request, ReportRequest, "Report Specifier & Interval",
+                                     [:dtstart, :duration, :report_back_duration, :granularity, :is_metadata])
+%>
+
+<% if  not @report_request.is_metadata? %>
+<div id="rid_content">
+  <%= render 'rids' %>
+</div>
+<% end %>

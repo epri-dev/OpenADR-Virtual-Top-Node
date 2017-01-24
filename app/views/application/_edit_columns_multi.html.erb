@@ -1,0 +1,18 @@
+<div class="form">
+    <fieldset>
+      <h3 class="fieldset-heading"><%= header_text %></h3>
+
+      <div class="row">
+        <% names.each do |name| %>
+          <% unless name.nil? %>
+            <div class="col-md-4">
+              <div class="form-group">
+                <%= f.label model_class.fields[name].display_name, model_class.fields[name].display_name %><br />
+                <%= model_class.fields[name].generate_field f, record[record.size - 1] %>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </fieldset>
+</div>

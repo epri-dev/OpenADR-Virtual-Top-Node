@@ -1,0 +1,24 @@
+# == Schema Information
+#
+# Table name: reading_types
+#
+#  id         :integer          not null, primary key
+#  name       :string(255)
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+# reading type
+# ReadingType.create(name: "Direct Read")
+# ReadingType.create(name: "Net")
+# ReadingType.create(name: "Allocated")
+# ReadingType.create(name: "Estimated")
+# ReadingType.create(name: "Summed")
+# ReadingType.create(name: "Derived")
+# ReadingType.create(name: "Mean")
+# ReadingType.create(name: "Peak")
+# ReadingType.create(name: "Hybrid")
+# ReadingType.create(name: "Contract")
+# ReadingType.create(name: "Projected")
+reading_type_1:
+  name: x-notApplicable

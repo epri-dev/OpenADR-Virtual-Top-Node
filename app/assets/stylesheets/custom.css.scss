@@ -1,0 +1,183 @@
+.roundtop {
+  -moz-border-radius: 5px 5px 0 0;
+  -webkit-border-radius: 5px 5px 0 0;
+  border-radius: 5px 5px 0 0;
+}
+
+.settingscontainer {
+  border: 1px solid #ccc;
+  padding: 5px;
+  margin-bottom: 5px;
+  width: 738px !important;
+}
+
+.noticecontainer, .errorcontainer {
+  border: none;
+  padding: 5px 5px 0px 5px;
+  width: 738px;
+}
+
+input[disabled] {
+  background-color: #ededed !important;
+}
+
+input[readonly] {
+  background-color: #ededed !important;
+}
+
+
+th {
+  background-color: #ccc !important;
+}
+
+.field_with_errors {
+  float: left !important;
+  margin-right: 10px !important;
+  padding: 0px !important;
+
+  input {
+    background-color: #ffc7c7 !important;
+  }
+}
+
+#error_explanation {
+  width: 738px !important;
+  border: 1px solid #c00 !important;
+  padding: 5px !important;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+  h2 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: 0px !important;
+    margin-bottom: 0px;
+    background-color: #ff9497;
+    color: #fff;
+  }
+  ul li {
+    font-size: 12px;
+    list-style: square;
+  }
+}
+
+input[type=number] {
+  background-color: #fff;
+  border:1px solid #bbb !important;
+  color:#000;
+
+  margin:0.5em 0;
+}
+
+input[type=number]:focus {
+  border-color:#666 !important;
+}
+
+input {
+  font-size: 12px;
+}
+
+select {
+  font-size: 12px;
+}
+
+body {
+  font-family: Arial,Helvetica,sans-serif !important;
+  font-size: 12px !important;
+}
+
+.view_details {
+
+  td {
+    border: 1px solid #ccc;
+    height: 35px;
+  }
+  .col1 {
+    width: 45%;
+    font-weight: bold;
+    text-align: right;
+  }
+}
+
+table.view_details tbody tr td {
+  background-color: #ffffe0;
+}
+
+table.view_details tbody tr.actions td {
+  background-color: #ffffff;
+}
+
+div.settingsbackground {
+  background-color: #ffffe0 !important;
+}
+
+#tabs {
+  font-family: Arial,Helvetica,sans-serif !important;
+  font-size: 12px !important;
+
+  a:hover {
+    background-color: #ffffe0;
+  }
+}
+
+#progressbar {
+  height: 15px;
+  margin-bottom: 10px;
+}
+
+.progress-label {
+  float: left;
+  left: 50%;
+  top: 0px;
+  font-weight: bold;
+  text-shadow: 1px 1px 0 #fff;
+  font-size: 9px !important;
+  padding-left: 5px;
+}
+
+#progressbar .ui-progressbar-value {
+  background-color: #f0f0f0;
+}
+
+div.processing {
+  background-color: #f0f0f0;
+}
+
+.create_button {
+  background-color: #f0f0f0;
+  text-decoration: none;
+
+  padding: 2px 6px 2px 6px;
+  border-top: 1px solid #CCCCCC;
+  border-right: 1px solid #333333;
+  border-bottom: 1px solid #333333;
+  border-left: 1px solid #CCCCCC;
+}
+
+.create_button:hover {
+  background-color: #ffffe0;
+}
+
+.list_table {
+  table-layout: fixed;
+}
+
+.list_table td {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.span-half {
+  width: 18px;
+  float: left;
+  margin-right: 10px;
+}
+
+.span-9-half {
+  width: 364px;
+  float: left;
+  margin-right: 10px;
+}

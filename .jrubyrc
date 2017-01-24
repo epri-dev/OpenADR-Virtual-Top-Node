@@ -1,0 +1,7 @@
+# Set compilation mode. JIT = at runtime; FORCE = before execution.
+# Options: [JIT, FORCE, OFF, OFFIR], Default: JIT.
+compile.mode=OFF
+
+# Use invokedynamic to bind FFI invocations.
+# Options: [true, false], Default: false.
+ffi.compile.invokedynamic=false

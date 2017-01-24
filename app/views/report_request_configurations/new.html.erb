@@ -1,0 +1,30 @@
+<% content_for :subnav_items do %>
+  <%= render 'subnav_item', link_text: 'Report Request Configurations', destination_path: report_request_configurations_path %>
+<% end %>
+
+<%= generate_notice notice %>
+<%= generate_error flash[:error] %>
+
+<%= generate_errors @report_request_configuration, "prohibited this Report Request Configuration from being created:" %>
+
+<%= form_for(@report_request_configuration) do |f| %>
+
+  <%= generate_edit_columns_multi(f, @report_request_configuration, ReportRequestConfiguration,
+    "Report Request Configuration",
+    [:name]) %>
+
+  <%= generate_edit_columns_multi(f, @report_request_configuration, ReportRequestConfiguration,
+    "Report Matching",
+    [:report_name_id, :sampling_rate_min_period, :sampling_rate_max_period, :sampling_rate_on_change]) %>
+
+  <%= generate_edit_columns_multi(f, @report_request_configuration, ReportRequestConfiguration,
+    "Configuration",
+    [:report_back_duration, :granularity]) %>
+
+  <div class="actions">
+    <%= f.submit 'Create Report Request Configuration', class: 'btn btn-success' %>
+  </div>
+
+<% end %>
+
+<%= link_to 'Back', report_request_configurations_path, class: 'btn btn-default' %>

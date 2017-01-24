@@ -1,0 +1,34 @@
+<div id="ven-<%= ven_interface.ven.id %>" class="card">
+
+  <div class="card-column col-1">
+    <div class="address-label">
+      <strong><%= ven_interface.ven.address_label %></strong>
+    </div>
+    <div class="customer-address">
+      <div class="address-line"><%= "#{ ven_interface.ven.address }" %></div>
+      <div class="address-line"><%= "#{ ven_interface.ven.address_extra }" %></div>
+      <div class="address-line">
+        <%= city_state_zip_line(
+          ven_interface.ven.city,
+          ven_interface.ven.state,
+          ven_interface.ven.zip
+        ) %>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-column col-2">
+    <%= render partial: "ven_interfaces/#{ ven_interface.view_directory }/ven_card_contents", locals: { ven_interface: ven_interface } %>
+  </div>
+
+  <div class="card-column col-3">
+
+    <div class="card-actions">
+      <%= link_to 'Data', ven_interval_data_path(ven_interface.ven), class: 'btn btn-default btn-xs' %>
+      <%= link_to 'Edit', ven_path(ven_interface.ven), class: 'btn btn-default btn-xs' %>
+      <div class="connection-status status-indicator-block <%= ven_interface.ven.status.parameterize %>">
+        <%= ven_interface.ven.status %>
+      </div>
+    </div>
+  </div>
+</div>

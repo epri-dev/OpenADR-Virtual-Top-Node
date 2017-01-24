@@ -1,0 +1,21 @@
+<% content_for :subnav_items do %>
+  <%= render 'subnav_item', link_text: 'Targets', destination_path: targets_path %>
+  <%= render 'subnav_item', link_text: @target.name, destination_path: target_path(@target) %>
+<% end %>
+
+<%= generate_notice notice %>
+<%= generate_error flash[:error] %>
+
+<%= generate_errors @target, "prohibited this target from being updated:" %>
+
+
+  <%= generate_edit_columns @target, Target,
+      "Identification",
+      [:name, :description, :type, :tag],
+      "Update Target"
+  %>
+
+
+<%= render 'application/membership' %>
+
+<%= link_to 'Back', targets_path, class: 'btn btn-default' %>

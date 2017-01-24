@@ -1,0 +1,50 @@
+# == Schema Information
+#
+# Table name: unit_types
+#
+#  id          :integer          not null, primary key
+#  name        :string(255)
+#  description :string(255)
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
+currency:
+  name: 'currency'
+  description: 'CURRENCY'
+
+currencyPerKW:
+  name: 'currencyPerKW'
+  description: 'CURRENCY_PER_KW'
+
+currencyPerKWh:
+  name: 'currencyPerKWh'
+  description: 'CURRENCY_PER_K_WH'
+
+customUnit:
+  name: 'customUnit'
+  description: 'customUnit'
+
+energyApparent:
+  name: 'energyApparent'
+  description: 'energyApparent'
+
+energyReactive:
+  name: 'energyReactive'
+  description: 'energyReactive'
+
+energyReal:
+  name: 'energyReal'
+  description: 'energyReal'
+
+powerApparent:
+  name: 'powerApparent'
+  description: 'powerApparent'
+
+powerReactive:
+  name: 'powerReactive'
+  description: 'powerReactive'
+
+powerReal:
+  name: 'powerReal'
+  description: 'powerReal'

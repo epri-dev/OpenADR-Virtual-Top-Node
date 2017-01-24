@@ -1,0 +1,16 @@
+<%= generate_notice notice %>
+<%= generate_error flash[:error] %>
+
+<%= generate_errors @schedule, "prohibited this Schedule from being created:" %>
+
+<%= generate_edit_columns @schedule, Schedule,
+    "Schedule",
+    [:start_date, :end_date, :start_time_str, :comment, nil, nil],
+    "Save Schedule"
+%>
+
+<%= generate_edit_columns @schedule, Schedule,
+    "Day Of Week",
+    [:monday, :tuesday, :wednesday, :thursday, :friday, nil, :saturday, :sunday, nil],
+    "Save Day Of Week"
+%>

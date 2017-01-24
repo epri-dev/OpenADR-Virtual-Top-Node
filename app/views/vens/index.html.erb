@@ -1,0 +1,46 @@
+<% content_for :subnav_items do %>
+  <%= render 'subnav_item', link_text: 'VENs', destination_path: vens_path %>
+<% end %>
+
+<%= generate_error flash[:error] %>
+<%= generate_notice flash[:notice] %>
+
+<% javascript 'vens.js' %>
+
+<div class="form">
+
+  <fieldset class="cards-list ven-cards">
+    
+    <div class="fieldset-heading">
+      <h3>VENs</h3>
+      <div class="list-actions">
+        <%= render 'search' %>
+        <%= link_to 'Create Ven', '#', { data: { toggle: 'modal', target: '#modal-interface-picker' }, class: 'btn btn-primary new-record' } %>
+      </div>
+    </div>
+    
+    <% if @search_parameters.present? %>
+      <%= link_to vens_path, class: 'clear-search-params' do %>
+        <span class="icon glyphicon glyphicon-remove" aria-hidden="true"></span>
+        <span>Clear Search Parameters</span>
+      <% end %>
+    <% end %>
+
+    <% if @ven_interfaces.empty? %>
+
+      <h4>Search returned no VENs.</h4>
+
+    <% else %>
+
+      <% @ven_interfaces.each do |ven_interface| %>
+
+        <%= render partial: "ven_card", locals: { ven_interface: ven_interface } %>
+        
+      <% end %>
+
+    <% end %>
+
+  </fieldset>
+</div>
+
+<%= render partial: 'modal_ven_interface_picker' %>

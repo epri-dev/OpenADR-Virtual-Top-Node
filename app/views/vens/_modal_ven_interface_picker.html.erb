@@ -1,0 +1,16 @@
+<div class="modal" id="modal-interface-picker">
+  <div class="modal-dialog">
+    <div class="close" data-dismiss="modal" aria-hidden="true">&times;</div>
+    <h3 class="modal-title">Create new VEN of type:</h3>
+    <div class="modal-body">
+      <% @grouped_ven_interface_class_names.keys.each do |group| %>
+        <div class="modal-options-group">
+          <h4><%= group %></h4>
+          <% @grouped_ven_interface_class_names[group].each do |ven_interface_class_name| %>
+            <%= link_to ven_interface_class_name, new_ven_by_type_path(ven_interface_class_name.underscore), class: 'object-type-option btn btn-primary' %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

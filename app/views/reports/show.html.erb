@@ -1,0 +1,47 @@
+
+<% content_for :subnav_items do %>
+  <%= render 'subnav_item', link_text: 'VEN', destination_path: ven_path(@report.ven.id) %>
+  <%= render 'subnav_item', link_text: 'Report', destination_path: report_path(@report) %>
+<% end %>
+
+<div class="form">
+    <fieldset>
+        <h3 class="fieldset-heading">Report Identification</h3>
+
+        <table>
+            <tbody>
+
+            <tr>
+                <td><label>VEN</label></td>
+                <td style="width: 20px"></td>
+                <td><%=@report.ven.name %></td>
+            </tr>
+
+            <tr>
+                <td><label>Report Name</label></td>
+                <td style="width: 20px"></td>
+                <td><%=@report.report_name.name %></td>
+            </tr>
+
+            <tr>
+                <td><label>Report Specifier ID</label></td>
+                <td style="width: 20px"></td>
+                <td><%=@report.report_specifier_id %></td>
+            </tr>
+
+            <tr>
+                <td><label>Duration</label></td>
+                <td style="width: 20px"></td>
+                <td><%=@report.duration %></td>
+            </tr>
+
+            </tbody>
+
+        </table>
+
+    </fieldset>
+</div>
+
+<%= generate_list_readonly(@report.report_interval_descriptions, ReportIntervalDescription, "Report Description",
+    [:rid, :reading_type_id, :emix_item, :report_data_source, :sampling_rate_max_period, :sampling_rate_min_period, :sampling_rate_on_change]) %>
+

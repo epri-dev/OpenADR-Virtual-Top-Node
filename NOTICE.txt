@@ -1,0 +1,198 @@
+This project is an implementation of the OpenADR Vritual Top Node.  It is released 
+under the BSD 3-Clause License (see LICENSE.txt)
+
+########################################
+## SMACK
+########################################
+
+This project is distributed with the following library:
+  * Smack XMPP library: http://www.igniterealtime.org/projects/smack/
+  * version: 3.3.1
+
+Licensing information is availabe online here:
+  * http://www.igniterealtime.org/builds/smack/docs/latest/README.html
+  
+Smack is distributed under the Apache License, version 2:
+
+Use of thie Smack source code is governed by the Apache License:
+
+ Copyright 2002-2008 Jive Software.
+
+ All rights reserved. Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+ 
+ 
+The library jar file distributed with this software is version 3.3.1 and was built
+with Oracle's Java, version 1.7.0_05.
+ 
+########################################
+## JRurby: http://jruby.org/
+########################################
+
+This project relies on JRuby on rails.  JRuby is an implmentation of Ruby for the
+Java Virtual Machine.  JRuby is released under the GPL.  The license is available
+here:
+  * https://github.com/jruby/jruby/blob/master/LICENSE.RUBY
+  * version: 1.7.4
+
+########################################
+## Ruby: https://www.ruby-lang.org/en/
+########################################
+
+Ruby is not used direclty in this program, but mentioned here for reference.
+
+Ruby is released under the 2-clause BSDL license:
+  * https://www.ruby-lang.org/en/about/license.txt
+  * uses JRuby which implements ruby in java.  
+    JRuby 1.7.4 is Ruby 1.9.3p392 compliant
+   
+  
+########################################
+## JRuby on Rails
+########################################
+
+This project was built using JRuby on rails version 3.2.  Rails is released under
+the MIT License:
+  * http://opensource.org/licenses/mit-license.php
+  * version: 3.2.12
+
+########################################
+## Blueprint CSS: http://www.blueprintcss.org/
+########################################
+  
+Blueprint CSS is released under a modifed MIT license.  The license text can be
+found in:
+  public/blueprint/blueprint.license.txt
+  
+########################################
+## GEMs
+########################################
+
+The following gems were used to build this project:
+
+
+name:               bcrypt-ruby                      
+version:            3.0.1           
+licnense:           MIT
+copyright year:
+copyright owners:
+
+name:              warbler                          
+version:           1.4.0.beta1     
+licnese:           MIT
+copyright year:
+copyright owners:
+
+name:              httpclient                       
+version:           2.2.2           
+license:           RUBY (dual or 2003 version)
+copyright year:
+copyright owners:
+
+name:              annotate
+version:           2.5.0
+license:           RUBY
+copyright year:
+copyright owners:
+
+name:              torquebox
+version:           3.0.0
+license:           Public Domain
+copyright year:
+copyright owners:
+
+name:              jdbc-mysql
+version:           5.1.25
+license:           GPLv2
+copyright year:
+copyright owners:
+
+name:              activerecord-jdbcmysql-adapter
+version:           1.2.9
+linense:           see: activerecord-jdbcmysql-adapter-license.txt
+copyright year:
+copyright owners:
+
+name:              sass-rails
+version:           3.2.3
+license:           MIT
+copyright year:
+copyright owners:
+
+name:              coffee-rails
+version:           3.2.1
+license:           MIT
+copyright year:    
+copyright owners:
+
+name:              therubyrhino
+version:           2.0.2
+lincense:          MIT
+copyright year:
+copyright owners:
+
+name:             uglifier
+version:          1.0.3
+license:          MIT
+copyright year:
+copyright owners:
+
+name:             rspec
+version:          2.14.3
+license:          MIT
+copyright year:
+copyright owners: 
+
+name:             rspec-rails
+version:          2.14.0
+license:          MIT
+copyright year:
+copyright owners:
+
+name:             spork-testunit
+version:          0.0.8
+license:          (no license given)
+copyright year:
+copyright owners:
+
+name:             spork
+version:          1.0rc
+license:          MIT
+copyright year:
+copyright owners:
+
+name:             test-unit
+version:          2.5.5
+license:          RUBY
+copyright year:
+copyright owners:
+
+name:             rails-erd
+version:          1.1.0
+license:          http://rails-erd.rubyforge.org/doc/files/LICENSE.html
+copyright year:
+copyright owners:
+
+name:             jquery-rails
+version:          3.0.4
+license:          MIT
+copyright year:
+copyright owners:
+          
+name:            jquery-ui-rails                  
+version:         4.0.3
+license:         MIT
+copyright year:
+copyright owners:
+
+  
+

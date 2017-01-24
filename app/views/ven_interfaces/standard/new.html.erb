@@ -1,0 +1,27 @@
+<%= render 'vens/new_subnav' %>
+
+<%= render 'vens/form_errors' %>
+
+<%= form_for :ven_interface, url: vens_path, method: 'post' do |f| %>
+
+  <%= f.fields_for :ven, @ven_interface.ven do |ff| %>
+
+    <%= ff.hidden_field :ven_interface_name %>
+
+    <%= build_fieldset_multi_member(
+        ff, "Identification",
+        [:name, :common_name],
+        @ven_interface,
+        @ven_interface.ven
+      )
+    %>
+
+  <% end %>
+  
+  <div class="actions">
+    <%= f.submit "Create VEN", class: 'btn btn-success' %>
+  </div>
+
+<% end %>
+
+<%= link_to 'Back', vens_path, class: 'btn btn-default' %>

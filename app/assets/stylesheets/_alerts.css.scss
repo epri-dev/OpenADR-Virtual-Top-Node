@@ -1,0 +1,15 @@
+.alert > {
+  h2, h3, h4 {
+    margin-top: 0;
+  }
+
+  .error-message {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0 0 10px;
+  }
+
+  .error-list {
+    padding: 0 0 0 25px;
+  }
+}

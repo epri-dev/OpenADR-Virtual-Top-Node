@@ -1,0 +1,33 @@
+<% content_for :subnav_items do %>
+  <%= render 'subnav_item', link_text: 'CreateReport', destination_path: create_report_path(@report_request.create_report.id) %>
+<% end %>
+
+<%= generate_notice notice %>
+
+<%= generate_errors @report_request, "prohibited this request from being created:" %>
+
+
+<%= # generate_edit_columns [@create_report, @report_request], ReportRequest,
+    #                         "New Report Request",
+    #                         [:report_id, nil, nil],
+    #                         "Create Report Request"
+%>
+
+
+<%= form_for([@create_report, @report_request]) do |f| %>
+
+  <%= generate_edit_columns_multi f, @report_request, ReportRequest,
+                                     "Report Specifier",
+                                     [:report_id, nil, nil, :granularity, nil, nil, :report_back_duration, nil, nil]
+  %>
+
+  <%= generate_edit_columns_multi f, @report_request, ReportRequest,
+                                     "Report Interval",
+                                     [:dtstart, nil, nil, :duration, nil, nil]
+  %>
+
+  <div class="actions">
+    <%= f.submit 'Create Report Request', class: 'btn btn-success' %>
+  </div>
+
+<% end %>

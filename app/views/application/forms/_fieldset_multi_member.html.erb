@@ -1,0 +1,16 @@
+<div class="form">
+  <fieldset id="<%= heading_string.parameterize %>">
+    <h3 class="fieldset-heading"><%= heading_string %></h3>
+
+    <div class="row">
+      <% attribute_symbols.each do |attribute_symbol| %>
+        <div class="col-md-4">
+          <div class="form-group">
+            <%= form_obj.label reference_object.class.fields[attribute_symbol].display_name, reference_object.class.fields[attribute_symbol].display_name, class: 'control-label' %><br />
+            <%= reference_object.class.fields[attribute_symbol].generate_field(form_obj, errors_object) %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </fieldset>
+</div>

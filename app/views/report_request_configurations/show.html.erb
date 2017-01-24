@@ -1,0 +1,31 @@
+<% content_for :subnav_items do %>
+  <%= render 'subnav_item', link_text: 'Report Request Configurations', destination_path: report_request_configurations_path %>
+  <%= render 'subnav_item', link_text: @report_request_configuration.name, destination_path: report_request_configuration_path(@report_request_configuration) %>
+<% end %>
+
+<%= generate_notice notice %>
+<%= generate_error flash[:error] %>
+
+<%= generate_errors @report_request_configuration, "prohibited this target from being updated:" %>
+
+<%= generate_edit_columns @report_request_configuration, ReportRequestConfiguration,
+    "Report Request Configuration",
+    [:name],
+    "Save"
+%>
+
+<%= generate_edit_columns @report_request_configuration, ReportRequestConfiguration,
+    "Report Matching",
+    [:report_name_id, :sampling_rate_min_period, :sampling_rate_max_period, :sampling_rate_on_change],
+    "Save"
+%>
+
+<%= generate_edit_columns @report_request_configuration, ReportRequestConfiguration,
+    "Report Request Settings",
+    [:report_back_duration, :granularity],
+    "Save"
+%>
+
+<%= link_to 'Back', report_request_configurations_path, class: 'btn btn-default' %>
+
+

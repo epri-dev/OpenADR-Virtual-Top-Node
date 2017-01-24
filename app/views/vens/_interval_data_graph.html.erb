@@ -1,0 +1,42 @@
+<% javascript 'ven_interval_data_graphs.js' %>
+
+<div class="form form-horizontal">
+
+    <fieldset class="ven-interval-data">
+
+      <div class="fieldset-heading">
+        <h3><%= @ven_interface.ven.name %> Interval Data</h3>
+        <div class="list-actions">
+          <%= render partial: "vens/live_connection_status_box", locals: { ven: @ven_interface.ven } %>
+        </div>
+      </div>
+
+      <input type="hidden" id="ven-id" class="form-control" readonly="true" title="ven-id" value="<%= @ven_interface.ven.id %>"/>
+
+      <div class="report-graph-controls">
+
+        <div class="date-controls">
+          <button type="button" value='Decrement Date' onclick="increment_date_by_days(-1);" class="btn btn-primary">Previous Day</button>
+          <input class="form-control" type="text" id="report_date" readonly="readonly" title="report date"/>
+          <button type="button" value='Increment Date' onclick="increment_date_by_days(+1);" class="btn btn-primary">Next Day</button>
+        </div>
+
+        <div class="hour-controls">
+          <label id="hours-label" for="amount">Hours:</label>
+          <input class="form-control" type="text" id="hours" readonly="readonly" title="hours"/>
+          <div id="hours-slider"></div>
+        </div>
+
+        <%= select(nil, '', @ven_interface.report_interval_description_options, {}, { id: "report-interval-description-select", class: "form-control graph-source-select" }) %>
+
+        <button type="button" value='Generate Graph' onclick="generate_report_intervals_graph();" id="generate-graph" class="btn btn-primary">Refresh Graph</button>
+
+      </div>
+
+      <div id="chart">
+          <svg height="240" style="background: white;"></svg>
+      </div>
+
+   </fieldset>
+
+</div>

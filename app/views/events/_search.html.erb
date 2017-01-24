@@ -1,0 +1,37 @@
+<% javascript 'event_search.js' %>
+
+<div id="events-search-wrapper" class="form-wrapper">
+    &nbsp;
+    <%= form_tag events_path, method: 'get', id: 'events-search', class: 'search' do %>
+      <div class="advanced-toggle">...</div>
+
+      <div class="advanced-fields">
+
+        <div class="form-group">
+          <%= label_tag :market_context_ids, 'Market Context(s)', class: 'control-label' %><br>
+          <%= select_tag :market_context_ids, options_from_collection_for_select(MarketContext.all, :id, :name, selected: @market_context_ids), { multiple: true, class: 'form-control chosen-select' } %>
+        </div>
+
+        <div class="form-group">
+          <%= label_tag :status_ids, 'Status(es)', class: 'control-label' %><br>
+          <%= select_tag :status_ids, options_from_collection_for_select(EventStatus.all, :id, :name, selected: @status_ids),{ multiple: true, class: 'form-control chosen-select' } %>
+        </div>
+
+        <div class="form-group">
+          <%= label_tag :comment_string, 'Comment', class: 'control-label' %><br>
+          <%= text_field_tag :comment_string, nil, class: 'form-control', value: @comment_string %>
+        </div>
+
+      </div>
+
+      <div class="standard-fields">
+        <div class="dates">
+          <%= text_field_tag :first_date_string, @first_date_string, class: 'form-control date-field', readonly: 'readonly' %>
+          to
+          <%= text_field_tag :last_date_string, @last_date_string, class: 'form-control date-field', readonly: 'readonly' %>
+        </div>
+        <%= submit_tag 'Search', class: 'btn btn-primary' %>
+      </div>
+
+  <% end %>
+</div>

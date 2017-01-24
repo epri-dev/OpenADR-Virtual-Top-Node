@@ -1,0 +1,24 @@
+<%= generate_notice notice %>
+<%= generate_error flash[:error] %>
+
+<%= generate_errors @resource, "prohibited this VEN from being saved:" %>
+
+<%= generate_edit_columns @resource, Resource,
+    "Resource Identification",
+    [:name, :ven_id, :resource_type_id],
+    "Update Identification"
+%>
+
+<%= generate_edit_columns @resource, Resource,
+    "Location",
+    [:address, :state, :zip, :geospatial_location, :grid_electrical_coordinates, nil],
+    "Update Identification"
+%>
+
+<%= generate_edit_columns @resource, Resource,
+    "Capabilities",
+    [:shed_capability, :ramp_period, :recovery_period],
+    "Update Capabilities"
+%>
+
+<%= link_to "Back to VEN", ven_path(@resource.ven), class: 'btn btn-default' %>

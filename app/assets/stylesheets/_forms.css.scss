@@ -1,0 +1,62 @@
+// Shared Styles
+form, div.form {
+  margin: 0 0 20px;
+
+  fieldset {
+    background: #f6f6f6;
+    border: 1px solid #ddd;
+    margin: 0 2px -10px;
+    padding: 0.35em 1em 1em;
+
+    .fieldset-heading {
+      border-bottom: 1px solid #d6d6d6;
+      margin: 10px 0 20px;
+      padding: 0 0 20px;
+    }
+
+    label.control, div.control {
+      padding-left: 30px;
+      padding-right: 30px;
+      margin-bottom: 4px;
+    }
+
+    div.form-submit {
+      padding-left:30px;
+    }
+
+    .datetimepicker.form-control {
+      cursor: pointer;
+    }
+  }
+}
+
+div.control {
+  width: 100%;
+  max-width: 600px;
+}
+
+div.table-control {
+  width: 100%;
+  max-width: 600px;
+}
+
+// Forms in Tables
+table form {
+  margin: 0;
+}
+
+// Specific Forms
+.session-form {
+  h2 {
+    margin-top: 0;
+  }
+}
+
+form fieldset:hover {
+  background-color: #e8eeee;
+}
+
+div.table-narrow {
+  table-layout: fixed;
+  width: 360px;
+}

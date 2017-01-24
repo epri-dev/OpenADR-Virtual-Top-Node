@@ -1,0 +1,23 @@
+
+
+<div class="form form-horizontal">
+
+  <fieldset>
+      <h3 class="fieldset-heading"><%= header_text %></h3>
+
+        <% names.each do |name| %>
+          <div class="form-group">
+              <label class="control">
+                  <%= model_class.fields[name].display_name unless name.nil? %>
+              </label>
+              <div class="control">
+                  <%= model_class.fields[name].generate_field_no_form record %>
+              </div>
+          </div>
+        <% end %>
+
+
+
+  </fieldset>
+
+</div>

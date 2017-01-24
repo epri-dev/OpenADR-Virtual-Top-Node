@@ -1,0 +1,8 @@
+<% content_for :subnav_items do %>
+  <%= render 'subnav_item', link_text: 'VENs', destination_path: vens_path %>
+  <%= render 'subnav_item', link_text: @ven.name, destination_path: ven_path(@ven) %>
+  <%= render 'subnav_item', link_text: 'Interval Data', destination_path: ven_interval_data_path(@ven) %>
+  <%= render 'subnav_item', link_text: 'Provision', destination_path: ven_provision_path(@ven) %>
+  <%= render 'subnav_item', link_text: 'Events', destination_path: ven_events_path(@ven) %>
+  <%= render 'subnav_item', link_text: 'Advanced', destination_path: ven_advanced_path(@ven) if current_account.is_admin? && @ven.ven_interface_name != 'Standard' %>
+<% end %>

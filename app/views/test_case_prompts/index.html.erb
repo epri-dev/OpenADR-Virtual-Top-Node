@@ -1,0 +1,39 @@
+<% content_for :subnav_items do %>
+  <%= render 'application/menu_item_subnav_groups/vtn_config_subnav_items' %>
+<% end %>
+
+<%= generate_notice notice %>
+<%= generate_error flash[:error] %>
+
+<%= form_for(@test_case, url: testcaseprompts_clear_events_path, method: :post) do |f| %>
+
+  <fieldset>
+    <h3 class="fieldset-heading">Clear Events</h3>
+
+
+    <%= hidden_field 'test_case_prompt', 'filter', value: @filter %>
+
+    <%= f.submit 'Clear Events', class: 'btn btn-primary' %>
+  </fieldset>
+<% end %>
+
+
+<%= form_for(@test_case, url: testcaseprompts_path, method: :get) do |f| %>
+
+  <fieldset>
+    <h3 class="fieldset-heading">Prompt Filter</h3>
+
+    <div class="form-group">
+      <label class="control-label">Enter Test Case Number to Filter</label> <br />
+      <%= text_field 'test_case_prompt', 'filter', value: @filter, size: '20', class: 'form-control' %>
+    </div>
+
+    <%= f.submit 'Filter', class: 'btn btn-primary' %>
+  </fieldset>
+<% end %>
+
+<% if not VtnParameter.first.ven.nil? %>
+  <% @test_case_prompts.each do |test_case_prompt| %>
+    <%= render test_case_prompt %>
+  <% end %>
+<% end %>

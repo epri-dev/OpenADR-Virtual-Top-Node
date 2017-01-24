@@ -1,0 +1,77 @@
+
+<% if @tou_schedule.signal_type.name.downcase != 'level' %>
+
+  <%= generate_view_details_column @tou_schedule, TouSchedule, "Time of Use Schedule",
+    [:name, :signal_type_id, :payload_unit_id, :market_context_id, :target_id, :time_zone, :is_active]
+  %>
+
+<% else %>
+  <%= generate_view_details_column @tou_schedule, TouSchedule, "Time of Use Schedule",
+    [:name, :signal_type_id, :market_context_id, :target_id, :time_zone, :is_active]
+  %>
+<% end %>
+
+<div class="form">
+
+  <fieldset>
+    
+    <div class="fieldset-heading">
+      
+      <h3>Hourly Settings</h3>
+      <div class="list-actions">
+        
+      </div>
+    </div>
+
+    <%= form_for @tou_schedule do |f| %>
+      <div class="table tou-hours">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th class="col-md-1">Hour of Day</th>
+              <% TouSchedule::ACCEPTABLE_SEASON_VALUES.each do |season| %>
+                <th class="col-md-1"><%= "#{ season } setting".titleize %></th>
+              <% end %>
+            </tr>
+          </thead>
+          <tbody>
+            <% (0..23).each do |hour| %>
+              <tr>
+                <td>
+                  <% case hour %>
+                  <% when 1..11 %>
+                    <%= "#{ hour }am" %>
+                  <% when 13..23 %>
+                    <%= "#{ hour - 12 }pm" %>
+                  <% when 12 %>
+                    <%= "Noon" %>
+                  <% when 0 %>
+                    <%= "Midnight" %>
+                  <% end %>
+                </td>
+                <% TouSchedule::ACCEPTABLE_SEASON_VALUES.each do |season| %>
+                  <td>
+                    <% if @tou_schedule.signal_type.name == 'level' %>
+                      <%= f.select "hour_#{ '%02d' % hour }_#{ season }", TouSchedulesHelper::level_payload_value_select_options, {}, class: 'form-control' %>
+                    <% else %>
+                      <%= f.text_field "hour_#{ '%02d' % hour }_#{ season }", class: 'form-control' %>
+                    <% end %>
+                    
+                  </td>
+                <% end %>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="form-group">
+        <div class="form-submit">
+          <%= f.submit 'Save', class: 'btn btn-primary' %>
+        </div>
+      </div>
+
+    <% end %>
+
+  </fieldset>
+</div>

@@ -1,0 +1,24 @@
+<%= form_for record, html: { class: 'form form-horizontal' } do |f| %>
+  <fieldset id="<%= header_text.parameterize %>">
+    <h3 class="fieldset-heading"><%= header_text %></h3>
+
+      <% names.each do |name| %>
+        <div class="form-group">
+          <label class="control">
+            <%= model_class.fields[name].display_name unless name.nil? %>
+          </label>
+
+          <div class="control">
+            <%= model_class.fields[name].generate_field f, record %>
+          </div>
+        </div>
+      <% end %>
+
+      <div class="form-group">
+        <div class="form-submit">
+          <%= f.submit 'Save', class: 'btn btn-primary' %>
+        </div>
+      </div>
+
+  </fieldset>
+<% end %>

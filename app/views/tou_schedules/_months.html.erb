@@ -1,0 +1,182 @@
+<div class="form">
+
+  <fieldset>
+    
+    <div class="fieldset-heading">
+      
+      <h3>Seasons</h3>
+      <div class="list-actions">
+        
+      </div>
+    </div>
+
+    <div class="month-season-grid">
+      <% @tou_schedule.months_with_season.each do |key, value| %>
+      <div class="grid-month  <%= value[1] %>">
+        <div class="grid-month-name">
+          <%= value[0][0..2].capitalize %>
+        </div>
+        <div class="grid-month-season">
+          
+        </div>
+      </div>
+      <% end %>
+    </div>
+
+    <div class="summer-month-range-selection">
+
+      <div class="form-group">
+        <label class="control">
+          First Month of Summer
+        </label>
+
+        <div class="control">
+          <%= select_month @tou_schedule.first_month_of_summer, { field_name: 'first_month_of_summer' }, { class: 'form-control summer-range-select' } %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control">
+          Last Month of Summer
+        </label>
+
+        <div class="control">
+          <%= select_month @tou_schedule.last_month_of_summer, { field_name: 'last_month_of_summer' }, { class: 'form-control summer-range-select' } %>
+        </div>
+      </div>
+    </div>
+
+    <%= form_for @tou_schedule do |f| %>
+
+      <div class="month-fields">
+
+        <div class="form-group">
+          <label class="control">
+            January
+          </label>
+
+          <div class="control">
+            <%= f.select :month_01_season, TouSchedule::ACCEPTABLE_SEASON_VALUES, {}, class: 'form-control' %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="control">
+            February
+          </label>
+
+          <div class="control">
+            <%= f.select :month_02_season, TouSchedule::ACCEPTABLE_SEASON_VALUES, {}, class: 'form-control' %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="control">
+            March
+          </label>
+
+          <div class="control">
+            <%= f.select :month_03_season, TouSchedule::ACCEPTABLE_SEASON_VALUES, {}, class: 'form-control' %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="control">
+            April
+          </label>
+
+          <div class="control">
+            <%= f.select :month_04_season, TouSchedule::ACCEPTABLE_SEASON_VALUES, {}, class: 'form-control' %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="control">
+            May
+          </label>
+
+          <div class="control">
+            <%= f.select :month_05_season, TouSchedule::ACCEPTABLE_SEASON_VALUES, {}, class: 'form-control' %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="control">
+            June
+          </label>
+
+          <div class="control">
+            <%= f.select :month_06_season, TouSchedule::ACCEPTABLE_SEASON_VALUES, {}, class: 'form-control' %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="control">
+            July
+          </label>
+
+          <div class="control">
+            <%= f.select :month_07_season, TouSchedule::ACCEPTABLE_SEASON_VALUES, {}, class: 'form-control' %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="control">
+            August
+          </label>
+
+          <div class="control">
+            <%= f.select :month_08_season, TouSchedule::ACCEPTABLE_SEASON_VALUES, {}, class: 'form-control' %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="control">
+            September
+          </label>
+
+          <div class="control">
+            <%= f.select :month_09_season, TouSchedule::ACCEPTABLE_SEASON_VALUES, {}, class: 'form-control' %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="control">
+            October
+          </label>
+
+          <div class="control">
+            <%= f.select :month_10_season, TouSchedule::ACCEPTABLE_SEASON_VALUES, {}, class: 'form-control' %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="control">
+            November
+          </label>
+
+          <div class="control">
+            <%= f.select :month_11_season, TouSchedule::ACCEPTABLE_SEASON_VALUES, {}, class: 'form-control' %>
+          </div>
+        </div>
+
+         <div class="form-group">
+          <label class="control">
+            December
+          </label>
+
+          <div class="control">
+            <%= f.select :month_12_season, TouSchedule::ACCEPTABLE_SEASON_VALUES, {}, class: 'form-control' %>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="form-submit">
+          <%= f.submit 'Save', class: 'btn btn-primary' %>
+        </div>
+      </div>
+      
+    <% end %>
+  </fieldset>
+</div>

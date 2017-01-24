@@ -1,0 +1,73 @@
+<div class="form">
+<fieldset>
+<h3 class="fieldset-heading"><%= header_text %></h3>
+
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <% names.each do |name| %>
+          <th><%= model_class.fields[name].display_name %></th>
+        <% end %>
+
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr class="record" id="<%= "#{ model_class.name.underscore }_new" %>">
+        <%= form_for(new_record, namespace: 'new') do |f| %>
+          <% names.each do |name| %>
+            <td class="form-group">
+              <div class="table-control">
+                <%= model_class.fields[name].generate_field f, new_record[new_record.length - 1] %>
+              </div>
+            </td>
+          <% end %>
+
+          <td colspan="2">
+            <% if new_record[new_record.length - 1].id.nil? %>
+              <%= f.submit 'Create', class: 'btn btn-success' %>
+            <% else %>
+              <%= f.submit 'Save', class: 'btn btn-primary' %>
+            <% end %>
+          </td>
+        <% end %>
+      </tr>
+
+      <% records.each do |record| %>
+
+        <% if record.id != new_record[new_record.length - 1].id %>
+          <tr class="record" id="<%= "#{ record.class.name.underscore }_#{ record.id }" %>">
+            <%= form_for(record, namespace: record.id) do |f| %>
+
+              <% names.each do |name| %>
+
+                    <td class="form-group">
+                        <div class="table-control">
+                          <%= model_class.fields[name].generate_field f, record %>
+                        </div>
+                    </td>
+              <% end %>
+
+              <td style="width: 125px;">
+                <%= f.submit 'Save', class: 'btn btn-primary' %>
+                <% if edit_path_method %>
+                  <%= link_to 'Edit', edit_path_method.call(record), class: 'btn btn-default' %>
+                <% end %>
+              </td>
+              <td class="action">
+                <%= link_to 'Destroy', record, class: 'btn btn-danger btn-sm', method: :delete, data: { confirm: 'Are you sure?' } %>
+              </td>
+
+            <% end %>
+          </tr>
+        <% end %>
+
+      <% end %>
+    </tbody>
+  </table>
+</div>
+</fieldset>
+</div>

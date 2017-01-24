@@ -1,0 +1,24 @@
+// Place all the styles related to the Accounts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.accounts_table th.accounts_header_name
+{
+  width: 20em;
+}
+
+.accounts_table th.accounts_header_edit
+{
+  width: 5em;
+}
+
+.accounts_table th.accounts_header_destroy
+{
+  width: 4em;
+}
+
+.accounts_table th.accounts_header_create_ven
+{
+  width: 6em;
+}

@@ -1,0 +1,64 @@
+# == Schema Information
+#
+# Table name: vens
+#
+#  id                          :integer          not null, primary key
+#  name                        :string(255)
+#  email                       :string(255)
+#  address                     :string(255)
+#  state                       :string(255)
+#  zip                         :string(255)
+#  geospatial_location         :string(255)
+#  grid_electrical_coordinates :string(255)
+#  shed_capability             :float
+#  ramp_period                 :integer
+#  recovery_period             :integer
+#  account_id                  :integer
+#  created_at                  :datetime         not null
+#  updated_at                  :datetime         not null
+#  registration_id             :integer
+#  ven_id                      :string(255)
+#  common_name                 :string(255)
+#  distribute_event_payload    :text
+#  profile_id                  :integer
+#  http_push                   :boolean
+#  transport_address           :string(255)
+#  last_comm_at                :datetime
+#  time_zone                   :string(255)      default("UTC")
+#  ven_interface_name          :string(255)
+#  address_label               :string(255)
+#  address_extra               :string(255)
+#  city                        :string(255)
+#
+
+ven1:
+  name: ven1
+  ven_id: ven123
+  email: test@domain.com
+  account_id: 1
+  address: some address
+  state: wi
+  zip: 12345
+  geospatial_location: 1234
+  grid_electrical_coordinates: 1234
+  shed_capability: 100
+  ramp_period: 200
+  recovery_period: 202
+  common_name: cn1
+  time_zone: Hawaii
+
+ven2:
+  name: ven2
+  ven_id: ven432
+  email: test@domain.com
+  account_id: 1
+  address: some address
+  state: wi
+  zip: 12345
+  geospatial_location: 1234
+  grid_electrical_coordinates: 1234
+  shed_capability: 100
+  ramp_period: 200
+  recovery_period: 202
+  common_name: cn2
+  time_zone: Hawaii

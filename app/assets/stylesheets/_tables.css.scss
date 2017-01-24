@@ -1,0 +1,45 @@
+table {
+  th {
+    background: #eee;
+    font-size: 15px;
+  }
+
+  td {
+    .checkbox {
+      margin: 0;
+    }
+  }
+
+  .action {
+    text-align: right;
+    width: 100px;
+  }
+
+  .actions {
+    text-align: right;
+    width: 240px;
+
+    .btn-danger {
+      margin-left: 15px;
+    }
+  }
+}
+
+// Override Bootstrap's default of stripes on odd number columns
+.table-striped > tbody > tr:nth-child(odd) > {
+  td, th {
+    background-color: white;
+  }
+}
+
+.table-striped > tbody > tr:nth-child(even) > {
+  td, th {
+    background-color: #e8eeee;
+  }
+}
+
+.table-striped > tbody > tr:hover > {
+  td {
+    background-color: #fafae3;
+  }
+}

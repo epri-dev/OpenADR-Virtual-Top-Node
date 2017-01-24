@@ -1,0 +1,14 @@
+<%= generate_notice notice %>
+<%= generate_error flash[:error] %>
+
+<%= generate_errors @event_signal, "prohibited this event from being created:" %>
+
+<%= generate_edit_columns [@event, @event_signal], EventSignal,
+    "Event Signal",
+    [:name, :current_value, :signal_type_id, :signal_id, nil, nil],
+    "Save Signal"
+%>
+
+<div class="span-19">
+	<%= link_to 'Back', event_path(@event) %>
+</div>

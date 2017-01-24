@@ -1,0 +1,13 @@
+<%= form_for(event, url: publish_event_path(event)) do |f| %>
+
+  <fieldset>
+    <h3 class="fieldset-heading">Publish Event <%= event.event_id %></h3>
+
+    <% if not event.published %>
+      <div class="alert alert-warning"><strong>WARNING:</strong> This event has unpublished modifications.  Select the publish button below to publish these changes to associated vens.</div>
+    <% end %>
+
+    <%= f.submit "Publish Event", class: 'btn btn-success' %>
+  </fieldset>
+
+<% end %>

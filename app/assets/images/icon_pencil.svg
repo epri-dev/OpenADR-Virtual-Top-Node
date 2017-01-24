@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="240px" height="240px" viewBox="0 0 240 240" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <g id="pencil-icon" sketch:type="MSLayerGroup" transform="translate(109.000000, 129.000000) rotate(225.000000) translate(-109.000000, -129.000000) translate(73.000000, -24.000000)" fill="#333333">
+        <rect id="Rectangle-1" sketch:type="MSShapeGroup" x="0" y="81" width="72" height="180"></rect>
+        <polygon id="Triangle-1" sketch:type="MSShapeGroup" points="36 0 72 72 0 72 "></polygon>
+        <path d="M72,270 L72,293.996825 C72,300.625995 66.6177433,306 60.009604,306 L11.990396,306 C5.36828313,306 0,300.620315 0,293.996825 L0,270 L72,270 Z" id="Rectangle-2" sketch:type="MSShapeGroup"></path>
+    </g>
+</svg>

@@ -1,0 +1,34 @@
+<%= generate_notice notice %>
+<%= generate_error flash[:error] %>
+
+<%= generate_errors @event, "prohibited this Schedule from being saved:" %>
+<%= generate_errors @schedule, "prohibited this Schedule from being saved:" %>
+
+<%= form_for(@schedule) do |f| %>
+
+  <%= fields_for(@event) do |event_fields| %>
+    <%= generate_edit_columns_multi event_fields, @event, Event,
+        "Event Descriptor",
+        [:duration, :market_context_id, :signal_name_id, :signal_type_id, :priority, :response_required_type_id, :vtn_comment, :test_event, nil]
+    %>
+  <% end %>
+
+  <%= generate_edit_columns_multi f, @schedule, Schedule,
+      "Schedule Duration and Event Start Time",
+      [:start_date, :end_date, :start_time_str, :comment, nil, nil]
+  %>
+
+  <%= generate_edit_columns_multi f, @schedule, Schedule,
+      "Weekdays",
+      [:monday, :tuesday, :wednesday, :thursday, :friday]
+  %>
+
+  <%= generate_edit_columns_multi f, @schedule, Schedule,
+      "Weekends",
+      [:saturday, :sunday]
+  %>
+
+  <div class="actions">
+    <%= f.submit 'Create Schedule', class: 'btn btn-success' %>
+  </div>
+<% end %>

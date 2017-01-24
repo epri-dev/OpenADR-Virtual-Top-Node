@@ -1,0 +1,19 @@
+<div class="tab-pane" id="response">
+
+  <%= form_for :event_interface, url: @update_path, method: 'put', html: { class: 'form form-horizontal' } do |f| %>
+
+    <%= f.fields_for :event, @event_interface.event do |ff| %>
+
+      <%= build_fieldset_solo(
+          ff, "Response Required",
+          [:response_required_type_id],
+          @event_interface,
+          @event_interface.event
+        )
+      %>
+
+    <% end %>
+
+  <% end %>
+
+</div>

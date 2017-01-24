@@ -1,0 +1,38 @@
+// Place all the styles related to Event/VenInterface here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.modal-dialog {
+  // display: none;
+  position: fixed;
+  z-index: 99;
+  top: 33%;
+  left: 25%;
+  width: 50%;
+  padding: 12px 16px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  box-shadow: 2px 2px 16px 0px rgba(0,0,0,.5);
+
+
+  .close {
+    margin: -6px 0px;
+    font-size: 2.4em;
+  }
+
+  h3, h4 {
+    margin-top: 0px;
+  }
+
+  .object-type-option {
+    margin: 3px;
+  }
+
+  .modal-options-group {
+    margin-top: 24px;
+
+    &:first-child {
+      margin-top: 0px;
+    }
+  }
+}

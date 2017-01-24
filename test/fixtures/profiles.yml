@@ -1,0 +1,17 @@
+# == Schema Information
+#
+# Table name: profiles
+#
+#  id         :integer          not null, primary key
+#  name       :string(255)
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+
+profile_a:
+  name: "2.0a"
+
+
+profile_b:
+  name: "2.0b"

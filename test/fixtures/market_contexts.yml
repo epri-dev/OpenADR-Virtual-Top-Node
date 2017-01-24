@@ -1,0 +1,19 @@
+# == Schema Information
+#
+# Table name: market_contexts
+#
+#  id          :integer          not null, primary key
+#  name        :string(255)
+#  description :string(255)
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  color       :string(255)
+#
+
+marketcontext1:
+  name: http://epri1
+  color: '#f60'
+
+marketcontext2:
+  name: http://epri2
+  color: '#333333'

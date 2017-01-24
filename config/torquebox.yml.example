@@ -1,0 +1,42 @@
+# This is the TorqueBox configuration file. Refer to the TorqueBox
+# documentation at http://torquebox.org/documentation/current/
+# for all configuration options.
+web:
+  context: "/"
+
+services:
+  push_message_manager:
+    service: PushMessageManager
+    config:
+      enableXmpp: false
+      host: # set the XMPP hostname.  This name must match the hostname field configured in the XMPP server
+      port: 5222
+      username: 222222222222
+      password: password
+      keystore: keystore.jks
+      keystorePassword: password
+      truststore: truststore.jks
+      truststorePassword: password
+      protocols: TLSv1.2,TLSv1
+      cipherSuites: TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,TLS_RSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA,TLS_RSA_WITH_AES_128_CBC_SHA
+      enableTLS: fals
+      tlsDebug: true
+      validateVENHostname: false
+
+  advance_objects:
+    service: AdvanceObjects
+    config:
+      sleep: 10
+
+jobs:
+  generate_tou_events:
+    job: GenerateTouEvents
+    # second, minute, hour, day_of_month, month, day_of_week, year(optional)
+    # Either day_of_month or day_of_week must be set to '?', as Torquebox does not support using both at once
+    # here's a discussion on ? vs *: http://stackoverflow.com/questions/11499740/significance-of-question-mark-in-java-cron
+    # the example below runs every Friday, making it invalid to say * for day of month (day of month is dependent on
+    # day of week which is Friday)
+    cron: '0 0 12 ? * FRI *'
+    # cron: '0 */1 * * * ?' # UNCOMMENT FOR TESTING run every 1 minute
+    timeout: 120 s
+    description: Create Event instances (and associated signal-related objects) based on TouSchedule

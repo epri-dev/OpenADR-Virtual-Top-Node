@@ -1,0 +1,24 @@
+<div class="calendar-event
+    <%= ' trimmed_to_fit_end' if meta_styles[:trimmed_to_fit_end] == true %>
+    <%= ' trimmed_to_fit_beginning' if meta_styles[:trimmed_to_fit_beginning] == true %>
+  "
+  style="
+    top: <%= meta_styles[:position_top_offset_in_pixels] %>px;
+    height: <%= meta_styles[:display_height_in_pixels] %>px;
+    background-color: <%= meta_styles[:market_context_color] %>;
+  "
+>
+  <div class="event-data">
+    <%= link_to image_tag('icon_pencil.svg'), event, class: "link-to-object" %>
+    <div class="datapoint market-context"><%= event.market_context.name unless event.market_context.nil? %></div>
+    <div class="datapoint time">
+      <strong>
+        <%= "#{ event.dtstart.in_time_zone(user_time_zone).strftime("%-l:%M%P") }-#{ event.dtend.in_time_zone(user_time_zone).strftime("%-l:%M%P (%Z)") }" %>
+      </strong>
+    </div>
+    <div class="datapoint duration">
+        <%= "#{ minutes_to_words(event.duration) }" %>
+    </div>
+    <div class="datapoint status"><%= event.event_status.name.capitalize unless event.event_status.nil? %></div>
+  </div>
+</div>

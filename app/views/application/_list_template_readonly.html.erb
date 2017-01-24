@@ -1,0 +1,31 @@
+<div class="form">
+  <fieldset>
+    <h3 class="fieldset-header"><%= header_text %></h3>
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <% names.each do |name| %>
+            <th><%= model_class.fields[name].display_name %></th>
+          <% end %>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% records.each do |record| %>
+
+          <tr>
+            <% names.each do |name| %>
+
+              <td>
+                <%= model_class.fields[name].get_value record %>
+              </td>
+
+            <% end %>
+          </tr>
+
+        <% end %>
+      </tbody>
+    </table>
+  </fieldset>
+</div>

@@ -1,0 +1,41 @@
+<div class="form">
+  <fieldset>
+    <h3 class="fieldset-heading"><%= header_text %></h3>
+
+    <table class="<%= params[:controller] %>_table table table-striped">
+      <thead>
+        <tr>
+          <% names.each do |name| %>
+            <th class="<%= "#{params[:controller]}_header_#{name}" %>"><%= model_class.fields[name].display_name %></th>
+          <% end %>
+
+          <th class="actions"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% records.each do |record| %>
+          <tr id="<%= record.class.name.underscore.parameterize %>-<%= record.id %>">
+            <% names.each do |name| %>
+
+              <td class="<%= "#{params[:controller]}_column_#{name}" %>" title="<%= model_class.fields[name].get_value record %>">
+                <%= model_class.fields[name].get_value record %>
+              </td>
+
+            <% end %>
+
+            <td class="actions">
+              <%= link_to 'View/Edit', record, class: 'btn btn-default btn-xs' %>
+              <%= link_to 'Destroy', record, class: 'btn btn-danger btn-xs', method: :delete, data: { confirm: 'Are you sure?' } %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <% if not new_path.nil? %>
+      <%= link_to create_button_text, new_path, class: 'btn btn-primary' %>
+    <% end %>
+
+  </fieldset>
+</div>

@@ -1,0 +1,17 @@
+<% if Rails.env.development? %>
+  <%= debug(params) %>
+<% end %>
+
+<footer class="footer row">
+  <div class="col-md-12">
+    <hr>
+  </div>
+  <div class="col-md-6">
+    Copyright &copy; <%= Time.now().year %> EPRI
+  </div>
+  <div class="col-md-6">
+    <span class="pull-right">
+      <%= Oadr::VERSION %>
+    </span>
+  </div>
+</footer>

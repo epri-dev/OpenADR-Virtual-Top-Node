@@ -1,0 +1,18 @@
+# == Schema Information
+#
+# Table name: response_required_types
+#
+#  id          :integer          not null, primary key
+#  name        :string(255)
+#  description :string(255)
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
+response_required_type1:
+  name: "always"
+  description: "always"  
+
+response_required_type2:
+  name: "never"
+  description: "never"

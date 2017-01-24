@@ -1,0 +1,56 @@
+<div class="tab-pane" id="settings">
+
+  <%= form_for :event_interface, url: @update_path, method: 'put', html: { class: 'form form-horizontal' } do |f| %>
+
+    <%= f.fields_for :event, @event_interface.event do |ff| %>
+
+      <%= build_fieldset_solo(
+          ff, "Event Descriptor",
+          [:event_id, :priority, :market_context_id, :event_status_id, :vtn_comment, :test_event, :created_at, :modification_number],
+          @event_interface,
+          @event_interface.event
+        )
+      %>
+    
+    <% end %>
+
+  <% end %>
+
+  <% if @event_interface.event.template == true %>
+
+    <%= form_for :event_interface, url: @update_path, method: 'put', html: { class: 'form form-horizontal' } do |f| %>
+      
+      <%= f.fields_for :event, @event_interface.event do |ff| %>
+
+        <%= build_fieldset_solo(
+            ff, "Active Period",
+            [:time_zone, :duration, :tolerance, :ei_notification, :ei_rampup, :ei_recovery],
+            @event_interface,
+            @event_interface.event
+          )
+        %>
+
+      <% end %>
+     
+    <% end %>
+
+  <% else %>
+
+    <%= form_for :event_interface, url: @update_path, method: 'put', html: { class: 'form form-horizontal' } do |f| %>
+      
+      <%= f.fields_for :event, @event_interface.event do |ff| %>
+
+        <%= build_fieldset_solo(
+            ff, "Active Period",
+            [:time_zone, :dtstart_str, :duration, :tolerance, :ei_notification, :ei_rampup, :ei_recovery],
+            @event_interface,
+            @event_interface.event
+          )
+        %>
+
+      <% end %>
+      
+    <% end %>
+
+  <% end %>
+</div>

@@ -1,0 +1,11 @@
+<% content_for :subnav_items do %>
+  <%= render 'subnav_item', link_text: 'Accounts', destination_path: accounts_path %>
+<% end %>
+
+<%= generate_error flash[:error] %>
+<%= generate_notice notice %>
+
+<%= generate_accounts_list(@accounts, Account, "Accounts",
+    [:name, :email, :company, :is_admin],
+    new_account_path,
+    "Create Account") %>

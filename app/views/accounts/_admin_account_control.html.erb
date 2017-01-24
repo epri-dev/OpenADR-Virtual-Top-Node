@@ -1,0 +1,14 @@
+<%= form_for(record, url: accounts_admin_path(record)) do |f| %>
+  <fieldset>
+    <h3 class="fieldset-heading">Administrator Settings</h3>
+
+    <div class="checkbox">
+      <%= f.label Account.fields[:is_admin].display_name, Account.fields[:is_admin].display_name do %>
+        <%= Account.fields[:is_admin].generate_field f, record %>
+        Administrator
+      <% end %>
+    </div>
+
+    <%= f.submit "Update Admin Settings", class: 'btn btn-primary' %>
+  </fieldset>
+<% end %>

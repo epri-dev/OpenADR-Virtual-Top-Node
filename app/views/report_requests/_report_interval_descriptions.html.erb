@@ -1,0 +1,32 @@
+<% report_interval_descriptions.each do |record| %>
+
+  <tr>
+
+      <td>
+          <%= record.rid %>
+      </td>
+
+      <td>
+          <%= record.emix_item %>
+      </td>
+
+      <td>
+          <%= record.reading_type.name if record.reading_type.present? %>
+      </td>
+
+      <td>
+          <%= record.sampling_rate_min_period %>
+      </td>
+
+      <td>
+          <%= record.sampling_rate_max_period %>
+      </td>
+
+      <td>
+
+        <%= check_box_tag "report_interval_description[id][]", record.id, checked, {:title => 'Check and click save to include.  Leave all unchecked to include all.'} %>
+
+      </td>
+  </tr>
+
+<% end %>

@@ -1,0 +1,150 @@
+/**
+*
+* jQuery Color Picker Plugin
+* URL: http://www.codecanyon.net/user/bamdaa
+* Version: 2.0
+* Author: BamDaa
+* Author URL: http://www.codecanyon.net/user/bamdaa
+*
+*/
+
+/*  Firefox normalize */
+.bmd-cp-window *::-moz-focus-inner{ 
+	border: 0;
+	padding: 0;
+	outline: 0;
+}
+
+/* Picker Window */
+.bmd-cp-window{ 
+	font-family: Tahoma;
+	background-color: #333;
+	display: none;
+	left: 0;
+	top: 0;
+	position: absolute;
+	z-index: 515;
+	-webkit-box-shadow: 0px 0px 10px rgba(50, 50, 50, 0.5);
+	-moz-box-shadow:    0px 0px 10px rgba(50, 50, 50, 0.5);
+	box-shadow:         0px 0px 10px rgba(50, 50, 50, 0.5);	
+}
+
+/* Picker Container */
+.bmd-cp-container{
+	position: relative;
+	padding: 5px;
+	margin: 0;
+}
+
+/* Picker Container in Fullscreen mode */
+.bmd-cp-fullscreen > .bmd-cp-container{
+	padding: 10px;
+}
+
+/* Control Buttons */
+.bmd-cp-container button[class^='bmd-cp-button-']{
+	background-repeat: no-repeat;
+	background-position: center center;
+	right: -20px;
+	border: 0;
+	margin: 0;
+}
+
+/* Controls Container */
+.bmd-cp-controls-container{
+	text-align: right;
+	padding-top: 5px;
+	margin: 0;
+}
+
+/* Control Buttons in Normal mode */
+.bmd-cp-controls{
+	position: absolute;	
+	padding: 0;
+	height: 20px;
+	width: 20px;
+}
+
+/* Close - Button */
+.bmd-cp-container .bmd-cp-button-close{
+	top: 5px;
+	background-color: #c0392b;
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOAQMAAAAlhr+SAAAABlBMVEUAAAD///+l2Z/dAAAAAXRSTlMAQObYZgAAAChJREFUCNdjAAIHDgYFAQYBBQYOBwaWBgZmBiACMoBcoCBQCqgAqAoAPTcC74JqR1MAAAAASUVORK5CYII=);
+	
+}
+
+/* Fullscreen - Button */
+.bmd-cp-container > .bmd-cp-button-fullscreen{
+	top: 26px;
+	background-color: #333;	
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOAQMAAAAlhr+SAAAABlBMVEUAAAD///+l2Z/dAAAAAXRSTlMAQObYZgAAAChJREFUCNdj+GDDcICHYYEIwwQVBg4HBpYGBjAAMoBcoCBQCqgAqAwAsQ4IWYLWtUcAAAAASUVORK5CYII=);
+}
+
+/* Buttons, Input in Controls container */
+.bmd-cp-controls-container button[class^='bmd-cp-button-'],
+.bmd-cp-controls-container input{
+	position: static;
+	margin: 0;
+	padding: 5px;	
+	outline: none;
+	display: inline-block;	
+	border: 0;
+}
+
+/* Buttons in Controls container */
+.bmd-cp-controls-container button[class^='bmd-cp-button-']{
+	height: 27px;
+	width: 27px;
+}
+
+/* Fullscreen Button transform to Normal Button in Fullscreen mode */
+.bmd-cp-controls-container > .bmd-cp-button-fullscreen{
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOAQMAAAAlhr+SAAAABlBMVEUAAAD///+l2Z/dAAAAAXRSTlMAQObYZgAAACZJREFUCNdjAAIHDgaVCQwiCxh4DjDYfGAAAyADyAUKAqWACoACAJeSB1ELCBg0AAAAAElFTkSuQmCC);
+	background-color: #e36c09;
+}
+
+/* Color list containing table */
+.bmd-cp-item-container{
+	width: 100%;
+	border-spacing: 0;
+	padding: 0;
+	margin: 0;	
+}
+
+/* Color cells */
+.bmd-cp-item-container td{
+	height: 20px;
+	width: 20px;
+	cursor: pointer;
+	padding: 0;
+	margin: 0;
+}
+
+/* Insert Code input */
+.bmd-cp-insert-input{
+	vertical-align:top;
+	border: 0;	
+	display: block;
+	width: 80px;
+	height: 27px !important;
+	padding: 5px !important;
+	font-family: Tahoma;
+	-webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+/* Accept color code Button */
+.bmd-cp-button-accept{
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOAQMAAAAlhr+SAAAABlBMVEUAAAD///+l2Z/dAAAAAXRSTlMAQObYZgAAACFJREFUCNdjQAAOBgYBBgYFBgcHBoUGBkEGBi4GBhaENAAfGwF4FBITzQAAAABJRU5ErkJggg==);	
+	background-color: #19b597;
+	color: #fff;
+}
+.bmd-cp-button-accept:hover{ background-color: #16a085;	}
+
+/* Color prefix Button # */
+.bmd-cp-button-prefix{
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOAQMAAAAlhr+SAAAABlBMVEUAAAD///+l2Z/dAAAAAXRSTlMAQObYZgAAABdJREFUCNdjAAIOBxCy/wAk4QhNEKgKAGsnBS9U7mopAAAAAElFTkSuQmCC);
+	background-color: #7f8c8d;
+	color: #666;
+}

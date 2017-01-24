@@ -1,0 +1,53 @@
+<div class="form">
+
+  <fieldset class="ven-provision">
+    
+    <div class="fieldset-heading">
+      <h3>Provision VEN <%= @ven_interface.ven.name %></h3>
+      <div class="list-actions">
+        <%= render partial: "vens/live_connection_status_box", locals: { ven: @ven_interface.ven } %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="label-icon">1</div>
+      <label class="control">
+        Server URL
+      </label>
+      <div class="control">
+        <input class="form-control" readonly="readonly" value="<%= @vtn_parameter.endpoint20b_url %>">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="label-icon">2</div>
+      <label class="control">
+        VEN Name
+      </label>
+      <div class="control">
+        <input class="form-control" id="ven-name" readonly="readonly" value="<%= @ven_interface.ven.name %>">
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <div class="label-icon">3</div>
+      <label class="control">
+        Common Name
+      </label>
+      <div class="control">
+        <input class="form-control" readonly="readonly" value="<%= @ven_interface.ven.common_name %>">
+      </div>
+    </div>
+
+    <div class="ven-client-reference">
+      <h4>VEN Client Screenshot</h4>
+      <div class="image-wrapper">
+        <%= image_tag 'ven-config-reference.jpg' %>
+        <div class="label-icon" style="top: 68px; left: 4px;">1</div>
+        <div class="label-icon" style="top: 120px; left: 324px;">2</div>
+        <div class="label-icon" style="top: 0px; left: 0px; display: none;">3</div>
+      </div>
+    </div>
+    
+  </fieldset>
+</div>

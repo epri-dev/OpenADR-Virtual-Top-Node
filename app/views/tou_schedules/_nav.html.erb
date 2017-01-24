@@ -1,0 +1,5 @@
+<% content_for :subnav_items do %>
+    <%= render 'subnav_item', link_text: 'Time of Use Schedules', destination_path: tou_schedules_path %>
+    <%= render 'subnav_item', link_text: "#{@tou_schedule.name}", destination_path: tou_schedule_path(@tou_schedule) %>
+    <%= render 'subnav_item', link_text: 'Season Settings', destination_path: tou_schedule_seasons_path(@tou_schedule) %>
+<% end %>

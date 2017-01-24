@@ -1,0 +1,27 @@
+<div class="tab-pane" id="targets">
+
+  <div class="processing alert alert-info">Processing... please wait</div>
+
+  <div id="target_form" class="tab-content">
+
+    <%= generate_targets_form %>
+
+  </div>
+
+  <%= form_for :event_interface, url: @update_path, method: 'put', html: { class: 'form form-horizontal' } do |f| %>
+
+    <%= f.fields_for :event, @event_interface.event do |ff| %>
+
+      <%= build_fieldset_solo(
+          ff, "Party ID",
+          [:include_subscribed_vens_only, :include_party_id],
+          @event_interface,
+          @event_interface.event
+        )
+      %>
+
+    <% end %>
+   
+  <% end %>
+
+</div>

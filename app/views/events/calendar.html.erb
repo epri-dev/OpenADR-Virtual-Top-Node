@@ -1,0 +1,80 @@
+<% javascript 'event_filter.js' %>
+
+<% content_for :subnav_items do %>
+  <%= render 'subnav_item', link_text: 'Events', destination_path: events_path %>
+  <%= render 'subnav_item', link_text: 'Calendar', destination_path: events_calendar_path(year: params[:year], month: params[:month], date: params[:date]) %>
+<% end %>
+
+<div class="form">
+
+  <fieldset class="cards-list event-cards event-calendar">
+    
+    <div class="fieldset-heading">
+      
+      <h3 style="padding-right: 15px;">Calendar</h3>
+      <div class="list-actions">
+        <%= render 'filter' %>
+        <%= link_to 'Create Event', '#', { data: { toggle: 'modal', target: '#modal-interface-picker' }, class: 'btn btn-primary new-record' } %>
+      </div>
+    </div>
+
+
+    <% if @market_context_ids.present? %>
+      <%= link_to events_calendar_path(destination_date_params(@date_string)), class: 'clear-filter-params' do %>
+        <span class="icon glyphicon glyphicon-remove" aria-hidden="true"></span>
+        <span>Clear Filter Parameters</span>
+      <% end %>
+    <% end %>
+
+    <div class="week-nav">
+      <%= link_to '<', events_calendar_path(destination_date_params(@week_range[0] - 1.week).merge(market_context_ids: @market_context_ids)), class: "week-increment btn btn-primary" %>
+      <%= link_to '>', events_calendar_path(destination_date_params(@week_range[0] + 1.week).merge(market_context_ids: @market_context_ids)), class: "week-increment btn btn-primary" %>
+      <span class="week-title"><%= "Week of #{ @week_range[0].strftime("%B #{ @week_range[0].day.ordinalize }, %Y") }" %></span>
+    </div>
+    
+    <div class="calendar-wrapper">
+
+      <div class="calendar">
+
+        <div class="hour-grid">
+
+          <div class="current-time-line" style="top: <%= (Time.now.in_time_zone(@time_zone).seconds_since_midnight / 60).to_i * @view_pixels_per_minute %>px;"></div>
+
+          <% ["12am", "1am", "2am", "3am", "4am", "5am", "6am", "7am", "8am", "9am", "10am", "11am",
+              "12pm", "1pm", "2pm", "3pm", "4pm", "5pm", "6pm", "7pm", "8pm", "9pm", "10pm", "11pm"].each do |hour| %>
+            <div class="hour">
+              <div class="hour-label">
+                <%= hour %>
+              </div>
+              <div class="half-hour">
+
+              </div>
+            </div>
+          <% end %>
+
+        </div>
+        
+        <div class="week">
+
+          <% @array_of_dates_in_week_range.each do |date| %>
+            <div class="day<%= " today" if date == Time.now.in_time_zone(@time_zone).to_date %>">
+              <span class="date-label"><%= "#{ date.strftime("%a %-m/%-d") }" %></span>
+              <% @events_by_day_of_week[date.strftime("%A")].each do |event_package| %>
+                <%= render partial: 'calendar_event', locals: {
+                    user_time_zone: @time_zone,
+                    event: event_package[:event],
+                    meta_styles: event_package[:meta_styles]
+                  }
+                %>
+              <% end %>
+            </div>
+          <% end %>
+
+        </div>
+      </div>
+    </div>
+
+  </fieldset>
+</div>
+
+<%= render 'modal_event_interface_picker' %>

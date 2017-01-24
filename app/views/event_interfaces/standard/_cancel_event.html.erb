@@ -1,0 +1,9 @@
+<%= form_for(event, url: cancel_event_path(event)) do |f| %>
+
+  <fieldset>
+    <h3 class="fieldset-heading">Cancel Event <%= event.event_id %></h3>
+
+    <%= f.submit 'Cancel Event', class: 'btn btn-danger' %>
+  </fieldset>
+
+<% end %>

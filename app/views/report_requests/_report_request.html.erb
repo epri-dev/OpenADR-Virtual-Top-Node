@@ -1,0 +1,21 @@
+<%= form_for(@report_request, remote: true, url: list_rids_report_request_path(@report_request), method: 'get', id: 'report_request_form_rid_list') do |f| %>
+
+  <table class="table table-striped">
+
+      <tr>
+        <td class="col1">
+          <%= ReportRequest.fields[:report_id].display_name %>
+        </td>
+
+        <td class="col3">
+
+          <%= ReportRequest.fields[:report_id].generate_field f, @report_request %>
+
+          <%= f.submit "Save", id: 'report_request_form_rid_submit', hidden: true %>
+
+        </td>
+      </tr>
+
+  </table>
+
+<% end %>

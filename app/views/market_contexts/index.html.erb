@@ -1,0 +1,11 @@
+<% content_for :subnav_items do %>
+  <%= render 'application/menu_item_subnav_groups/vtn_config_subnav_items' %>
+<% end %>
+
+<%= generate_error flash[:error] %>
+<%= generate_notice flash[:notice] %>
+
+<%= generate_errors @market_context, "prohibited this Market Context from being saved:" %>
+
+<%= generate_edit_table(@market_contexts, @market_context,
+    MarketContext, "Market Contexts", [:name, :description, :color]) %>

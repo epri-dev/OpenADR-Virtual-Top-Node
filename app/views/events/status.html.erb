@@ -1,0 +1,44 @@
+<% javascript 'event_interval_data_graphs.js' %>
+
+<%= render 'events/show_subnav' %>
+
+<div class="form form-horizontal">
+
+    <fieldset class="target-interval-data">
+
+        <div class="fieldset-heading">
+
+            <div class="event-times">
+                <h4 id="event_date"><%= " #{@event_interface.event.dtstart.in_time_zone(@event_interface.event.time_zone).strftime("%A, %b %e %Y")}" %></h4>
+                <div><%= "#{@event_interface.event.dtstart.in_time_zone(@event_interface.event.time_zone).strftime("%-l:%M%P") } - #{ @event_interface.event.dtend.in_time_zone(@event_interface.event.time_zone).strftime("%-l:%M%P (%Z)") } - #{minutes_to_words(@event_interface.event.duration)}" %></div>
+            </div>
+
+        </div>
+
+        <input type="hidden" id="event-id" class="form-control" readonly="true" title="event-id" value="<%= @event_interface.event.id %>"/>
+        
+        <div class="form-group">
+            <div class="control">
+                <%= select('', :interval_description_id, @report_interval_descriptions, {}, { id: "report-interval-description-select", class: "form-control graph-source-select" }) %>
+            </div>
+        </div>
+
+        <div class="report-graph-controls">
+
+            <div class="hour-controls">
+                <label id="hours-label" for="amount">Hours:</label>
+                <input class="form-control" type="text" id="hours" readonly="readonly" title="hours"/>
+                <div id="hours-slider"></div>
+            </div>
+
+            <button type="button" value='Generate Graph' onclick="generate_report_intervals_graph();" id="generate-graph" class="btn btn-primary">Refresh Graph</button>
+
+        </div>
+
+        <div id="chart">
+            <svg height="240" style="background: white;"></svg>
+        </div>
+
+    </fieldset>
+
+</div>

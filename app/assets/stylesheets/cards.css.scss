@@ -1,0 +1,39 @@
+.card {
+  display: inline-block;
+  margin: 12px 0px 0px 0px;
+  padding: 9px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+
+/* * * * * * * * * * * * * * * * */
+
+.card-column {
+  display: inline-block;
+  vertical-align: top;
+  padding: 0px 9px;
+  border-right: 1px solid #ddd;
+
+  &:nth-child(1) { // Column 1
+    padding-left: 0px;
+  }
+
+  &:nth-child(3) { // Column 3
+    padding-right: 0px;
+    border-right: none;
+  }
+}
+
+/* * * * * * * * * * * * * * * * */
+
+.card-actions {
+
+  a.btn {
+    display: block;
+    margin-bottom: 12px;
+
+    &:last-child {
+      margin-bottom: 0px;
+    }
+  }
+}

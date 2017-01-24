@@ -1,0 +1,22 @@
+# == Schema Information
+#
+# Table name: signal_types
+#
+#  id          :integer          not null, primary key
+#  name        :string(255)
+#  description :string(255)
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
+sig1:
+  name: delta
+  description: delta
+
+sig2:
+  name: level
+  description: level
+
+sig3:
+  name: price
+  description: price

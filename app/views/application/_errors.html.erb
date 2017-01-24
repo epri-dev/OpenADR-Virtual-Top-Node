@@ -1,0 +1,9 @@
+<div id="error_explanation" class="roundtop alert alert-danger">
+  <p class="error-message"><%= pluralize(record.errors.count, "error") + " " + message %></p>
+
+  <ul class="error-list">
+    <% record.errors.full_messages.each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+</div>

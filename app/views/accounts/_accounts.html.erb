@@ -1,0 +1,39 @@
+<div class="form">
+<fieldset>
+    <h3 class="fieldset-heading"><%= header_text %></h3>
+
+    <div class="table-responsive">
+      <table class="table table-striped <%= params[:controller] %>_table list_table">
+        <thead>
+          <tr>
+            <% names.each do |name| %>
+              <th class="<%= "#{params[:controller]}_header_#{name}" %>"><%= model_class.fields[name].display_name %></th>
+            <% end %>
+
+            <th class="actions"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% records.each do |record| %>
+            <tr>
+              <% names.each do |name| %>
+                <td class='<%= "#{params[:controller]}_column_#{name}" %>' title="<%= model_class.fields[name].get_value record %>">
+                  <%= model_class.fields[name].get_value record %>
+                </td>
+              <% end %>
+
+              <td class="actions">
+                <%= link_to 'Edit/View', record, class: 'btn btn-xs btn-default' %>
+                <%= link_to 'Destroy', record, method: :delete, class: 'btn btn-xs btn-danger', data: { confirm: 'Are you sure?' } %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
+    <%= link_to create_button_text, new_path, class: "create_button", class: 'btn btn-primary' %>
+
+</fieldset>
+</div>

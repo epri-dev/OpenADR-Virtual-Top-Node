@@ -1,0 +1,7 @@
+<%= generate_error flash[:error] %>
+<%= generate_notice flash[:notice] %>
+
+<%= generate_list(@resources, Resource, "Resources",
+    [:name, :address, :state, :ven_id],
+    new_resource_path,
+    "Create Resource") %>

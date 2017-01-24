@@ -1,0 +1,16 @@
+<% content_for :subnav_items do %>
+    <%= render 'subnav_item', link_text: 'Time of Use Schedules', destination_path: tou_schedules_path %>
+<% end %>
+
+<%= generate_notice notice %>
+<%= generate_error flash[:error] %>
+
+<%= generate_errors @tou_schedule, "prohibited this tou schedulefrom being created:" %>
+
+<%= generate_edit_columns @tou_schedule, TouSchedule,
+                          "New TOU Schedule",
+                          [:name],
+                          "Create TOU Schedule"
+%>
+
+<%= link_to 'Back', tou_schedules_path, class: 'btn btn-default' %>

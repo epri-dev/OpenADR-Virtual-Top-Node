@@ -1,0 +1,8 @@
+<%= generate_notice notice %>
+<%= generate_error flash[:error] %>
+
+<% @vens.each do |ven| %>
+  <%= generate_refresh_list(ven.id, ven.events, Event, "Dashboard: #{ven.name} (#{ven.status}) (#{ven.last_comm_at})",
+      [:event_id, :dtstart, :duration, :event_status_id, :test_event]) %>
+
+<% end %>
