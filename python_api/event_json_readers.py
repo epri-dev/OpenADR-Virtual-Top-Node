@@ -2,11 +2,10 @@ import json
 from datetime import datetime
 import pytz
 from enum import Enum
-
-#from custom_api import send_to_api #TODO: code this function
+from VTN_Api import VTN_Api
 
 EVENT_FILENAME = 'pdp_events.json'
-
+VTN_API_CONFIG_FILE = 'settings.json'
 
 # Type and name the EVENTS
 class SigTypeDrEvent(Enum):
@@ -19,12 +18,14 @@ class SigNameDrEvent(Enum):
     demand = 1
 
 
-DR_EVENT_DEFAULT_TZ = 8
+DR_EVENT_DEFAULT_TZ = "UTC"
 DR_EVENT_DEFAULT_VTN_COMMENT = None
 DR_EVENT_DEFAULT_PRIORITY = 0
 DR_EVENT_DEFAULT_TEST_EVENT = False
 DR_EVENT_DEFAULT_MARKET_CONTEXT = 1
 DR_EVENT_DEFAULT_RESP_REQ_TYPE_ID = 0
+
+vtn_api_obj = VTN_Api(config_file=VTN_API_CONFIG_FILE)
 
 
 def format_dr_event(name, type, dt_start, dur, payload,
@@ -53,9 +54,15 @@ def format_dr_event(name, type, dt_start, dur, payload,
 
     return ret_dict
 
-#TODO: remove this function
-def send_to_api(l_events):
-    return l_events
+def create_events(l_events):
+    """
+    Takes list of dictionaries that have information about DR events and create events in the VTN server
+    :param l_events: list of event dictionaries
+    :return: list of responses after attempting to create the events
+    """
+    vtn_api_obj.login()
+    responses = vtn_api_obj.create_events(events = l_events)
+    return responses
 
 
 def read_from_json(filename):
@@ -72,17 +79,17 @@ def read_from_json(filename):
             try:
                 data_pdp = json.load(input_file)
             except ValueError:
-                print 'cant parse json'
+                print ('cant parse json')
                 return None
     except:
-        print 'cant open file'
+        print ('cant open file')
         return None
 
     for pdp_event in data_pdp:
         pdp_event['start_date'] = datetime.strptime(pdp_event['start_date'], '%Y-%m-%dT%H:%M:%S-08:00').replace(
-            tzinfo=pytz.timezone('UTC'))
+            tzinfo=pytz.timezone(DR_EVENT_DEFAULT_TZ))
         pdp_event['end_date'] = datetime.strptime(
-            pdp_event['end_date'], '%Y-%m-%dT%H:%M:%S-08:00').replace(tzinfo=pytz.timezone('UTC'))
+            pdp_event['end_date'], '%Y-%m-%dT%H:%M:%S-08:00').replace(tzinfo=pytz.timezone(DR_EVENT_DEFAULT_TZ))
         pdp_event['dur'] = pdp_event['end_date'] - pdp_event['start_date']
 
     return data_pdp
@@ -97,5 +104,5 @@ if __name__ == '__main__':
     name = 3
     type_sig = 4
     list_dr_events = [format_dr_event(name, type_sig, e['start_date'], e['dur'], e['price']) for e in data_from_file]
-    print "Sending to API, waiting for an answer ..."
-    print send_to_api(list_dr_events)
+    print ("Sending to API, waiting for an answer ...")
+    print (create_events(list_dr_events))
