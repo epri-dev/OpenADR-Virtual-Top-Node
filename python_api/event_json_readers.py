@@ -24,6 +24,7 @@ DR_EVENT_DEFAULT_PRIORITY = 0
 DR_EVENT_DEFAULT_TEST_EVENT = False
 DR_EVENT_DEFAULT_MARKET_CONTEXT = 1
 DR_EVENT_DEFAULT_RESP_REQ_TYPE_ID = 0
+DR_EVENT_SOLARPLUS_VEN_TARGET_ID = 4
 
 vtn_api_obj = VTN_Api(config_file=VTN_API_CONFIG_FILE)
 
@@ -64,7 +65,6 @@ def create_events(l_events):
     responses = vtn_api_obj.create_events(events = l_events)
     return responses
 
-
 def read_from_json(filename):
     """
     Read tariff data from a JSON file to build the internal structure. The JSON file
@@ -101,8 +101,22 @@ if __name__ == '__main__':
     data_from_file = read_from_json(EVENT_FILENAME)
 
     # Send the list of event
-    name = 3
+    name = 4
     type_sig = 4
     list_dr_events = [format_dr_event(name, type_sig, e['start_date'], e['dur'], e['price']) for e in data_from_file]
     print ("Sending to API, waiting for an answer ...")
-    print (create_events(list_dr_events))
+
+    vtn_api_obj.login()
+    rsp_list = vtn_api_obj.create_events(list_dr_events)
+    event_id_list = []
+    for rsp in rsp_list:
+        event_id = vtn_api_obj.get_event_id(rsp)
+        event_id_list.append(event_id)
+
+    for event_id in event_id_list:
+        vtn_api_obj.add_target_to_event(event_id=event_id, target_id=DR_EVENT_SOLARPLUS_VEN_TARGET_ID)
+
+    for event_id in event_id_list:
+        vtn_api_obj.publish_event(event_id=event_id)
+
+    print (vtn_api_obj.logout())
