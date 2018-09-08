@@ -34,7 +34,8 @@ class VTN_Api():
             'content-type': "multipart/form-data"
         }
 
-        rsp = requests.post(self.url + ":" + self.port + "/login", data=data, headers=headers)
+        req_url = self.url + ":" + self.port + "/login"
+        rsp = requests.post(req_url, data=data, headers=headers)
         content = (rsp.content).decode("utf8")
         self.authenticity_token = self.get_authenticity_token(content)
         self.cookies = rsp.history[0].cookies.get_dict()
@@ -62,7 +63,8 @@ class VTN_Api():
         headers = {
             'content-type': "multipart/form-data"
         }
-        return requests.post(self.url + ":" + self.port + "/events", data=data, cookies=self.cookies, headers=headers)
+        req_url = self.url + ":" + self.port + "/events"
+        return requests.post(req_url, data=data, cookies=self.cookies, headers=headers)
 
     def create_events(self, events):
 
@@ -100,3 +102,41 @@ class VTN_Api():
                 test_event=event["test_event"],
                 timezone=event["time_zone"],
                 vtn_comment=event["vtn_comment"])
+
+    def get_event_id(self, response):
+        content = response.content.decode("utf8")
+        start_idx = content.find("<div class=\"item current\">")
+        return int(content[start_idx:].split("/events/")[1].split("\">")[0])
+
+    def add_target_to_event(self, event_id, target_id=4):
+        data = {
+            "utf8": True,
+            "authenticity_token": self.authenticity_token,
+            "target[id][]": target_id
+        }
+        headers = {
+            'content-type': "multipart/form-data"
+        }
+        req_url = self.url + ":" + self.port + "/events/%d/add_targets" % event_id
+        return requests.put(req_url, data=data, cookies=self.cookies, headers=headers)
+
+    def publish_event(self, event_id):
+        data = {
+            "utf8": True,
+            "authenticity_token": self.authenticity_token
+        }
+        headers = {
+            'content-type': "multipart/form-data"
+        }
+        req_url = self.url + ":" + self.port + "/events/%d/publish" % event_id
+        return requests.put(req_url, data=data, cookies=self.cookies, headers=headers)
+
+    def logout(self):
+        data = {
+            "authenticity_token":self.authenticity_token
+        }
+        headers = {
+            'content-type': "multipart/form-data"
+        }
+        req_url = self.url+":"+self.port+"/logout"
+        return requests.delete(req_url, data=data, cookies = self.cookies, headers = headers)
