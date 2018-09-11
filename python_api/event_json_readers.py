@@ -23,13 +23,13 @@ DR_EVENT_DEFAULT_VTN_COMMENT = None
 DR_EVENT_DEFAULT_PRIORITY = 0
 DR_EVENT_DEFAULT_TEST_EVENT = False
 DR_EVENT_DEFAULT_MARKET_CONTEXT = 1
-DR_EVENT_DEFAULT_RESP_REQ_TYPE_ID = 0
+DR_EVENT_DEFAULT_RESP_REQ_TYPE_ID = 1
 DR_EVENT_SOLARPLUS_VEN_TARGET_ID = 4
 
 vtn_api_obj = VTN_Api(config_file=VTN_API_CONFIG_FILE)
 
 
-def format_dr_event(name, type, dt_start, dur, payload,
+def format_dr_event(name, type_id, dt_start, dur, payload,
                     market_ctx=DR_EVENT_DEFAULT_MARKET_CONTEXT,
                     resp_req=DR_EVENT_DEFAULT_RESP_REQ_TYPE_ID,
                     vtn_comment=DR_EVENT_DEFAULT_VTN_COMMENT,
@@ -40,7 +40,7 @@ def format_dr_event(name, type, dt_start, dur, payload,
     ret_dict = {}
 
     ret_dict["signal_name_id"] = name
-    ret_dict["signal_type_id"] = type
+    ret_dict["signal_type_id"] = type_id
     ret_dict["dtstart_str"] = dt_start
     ret_dict["duration"] = dur
 
