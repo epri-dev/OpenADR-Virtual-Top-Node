@@ -1,0 +1,6 @@
+{
+  "url": "http://<url>",
+  "port": "<port>",
+  "username": "<user_name>",
+  "password": "<password>"
+}
