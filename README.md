@@ -4,3 +4,8 @@ The open-source OpenADR (OADR) Virtual Top Node software was developed to provid
 
 ## Documentation/Help ##
 Please refer to the [Software Manual](https://github.com/epri-dev/OpenADR-Virtual-Top-Node/releases "Software Manual") in the release section for technical documentation.
+
+## Notice
+The EPRI OpenADR 2.0 Virtual Top Node (VTN) and VEN was designed with the advanced software that was available at that time. This software, like any others, has dependencies on third-party software packages. Some of these third-party software packages are deprecated.
+
+Since its release in 2014, EPRI’s OpenADR 2.0 VTN has been downloaded over 6,700 times, supported numerous utility demonstration and field projects across the world, and has been implemented in commercial solutions. While EPRI has decided to discontinue support for the current version of EPRI OpenADR VTN due to deprecated software packages offered by the third parties, the code will remain on EPRI’s GitHub page as an example for others who are interested in seeing an example implementation. EPRI will continue to explore how to continue support to such software tools.
